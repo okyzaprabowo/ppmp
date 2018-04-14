@@ -21,10 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <h5 class="sidenav-heading"></h5>
       <ul id="side-main-menu" class="side-menu list-unstyled">
         <li><a href="<?php echo base_url('Dashboard'); ?>"><i class="icon-home"></i>Overview</a></li>
-        <li><a href="<?php echo base_url('Volunteer'); ?>"><i class="icon-user"></i>Relawan</a></li>
+        <li><a href="<?php echo base_url('Volunteer'); ?>"><i class="icon-user"></i>Volunteer</a></li>
         <li><a href="<?php echo base_url('Content'); ?>"><i class="icon-interface-windows"></i>Content</a></li>
         <li><a href="<?php echo base_url('Activity'); ?>"><i class="icon-picture"></i>Activity</a></li>
-        <li><a href="<?php echo base_url('Items'); ?>"><i class="icon-grid"></i>Items</a></li>
+        <li><a href="<?php echo base_url('Reports'); ?>"><i class="icon-grid"></i>Report</a></li>
+        <li><a href="<?php echo base_url('Settings'); ?>"><i class="icon-grid"></i>Setting</a></li>
       </ul>
     </div>
 

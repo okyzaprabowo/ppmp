@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="row">
             <div class="card">
               <div class="card-header d-flex align-items-center">
-                <h4>ACTIVITY</h4>
+                <h4>REPORT</h4>
               </div>
             </div>
           </div>

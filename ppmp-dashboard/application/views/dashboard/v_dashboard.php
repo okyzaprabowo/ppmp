@@ -13,67 +13,100 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <?php $this->load->view('templates/v_top_menu'); ?>
       <section class="dashboard-counts section-padding">
         <div class="container-fluid">
-          <header>
-            <h1 class="h3 display">Key Metrics</h1>
-          </header>
+
           <div class="row">
-
-            <!-- Count item widget-->
-            <div class="col-xl-2 col-md-4 col-2">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase">Unique Relawan</strong>
-                  <div class="count-number">235K</div>
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h4>KEY METRICS</h4>
+              </div>
+              <div class="row">
+                <!-- Count item widget-->
+                <div class="col-xl-2 col-md-4 col-2">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="icon-user"></i></div>
+                    <div class="name"><strong class="text-uppercase">Unique Relawan</strong>
+                      <div class="count-number">235K</div>
+                    </div>
+                  </div>
                 </div>
+
+                <div class="col-xl-2 col-md-4 col-2">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="icon-user"></i></div>
+                    <div class="name"><strong class="text-uppercase">Relawan &nbsp; Baru</strong>
+                      <div class="count-number">1500</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-2">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="icon-user"></i></div>
+                    <div class="name"><strong class="text-uppercase">Jumlah Konten</strong>
+                      <div class="count-number">1900</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-2">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="icon-user"></i></div>
+                    <div class="name"><strong class="text-uppercase">Sessions<br>&nbsp;</strong>
+                      <div class="count-number">97.0K</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-2">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="icon-user"></i></div>
+                    <div class="name"><strong class="text-uppercase">Finished Mission</strong>
+                      <div class="count-number">2,500</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-2 col-md-4 col-2">
+                  <div class="wrapper count-title d-flex">
+                    <div class="icon"><i class="icon-user"></i></div>
+                    <div class="name"><strong class="text-uppercase">Reports<br>&nbsp;</strong>
+                      <div class="count-number">4,000</div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
-
-            <div class="col-xl-2 col-md-4 col-2">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase">Relawan &nbsp; Baru</strong>
-                  <div class="count-number">1500</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-2 col-md-4 col-2">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase">Jumlah Konten</strong>
-                  <div class="count-number">1900</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-2 col-md-4 col-2">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase">Sessions<br>&nbsp;</strong>
-                  <div class="count-number">97.0K</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-2 col-md-4 col-2">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase">Finished Mission</strong>
-                  <div class="count-number">2,500</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-2 col-md-4 col-2">
-              <div class="wrapper count-title d-flex">
-                <div class="icon"><i class="icon-user"></i></div>
-                <div class="name"><strong class="text-uppercase">Reports<br>&nbsp;</strong>
-                  <div class="count-number">4,000</div>
-                </div>
-              </div>
-            </div>
-
           </div>
+
+          <div class="row">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h4>PETA PERSEBARAN</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>POPULAR TOPICS</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>POPULAR MEDIA</h4>
+                </div>
+              </div>
+            </div>
+          <div>
+
+
+
         </div>
       </section>
       <?php $this->load->view('templates/v_copyright'); ?>

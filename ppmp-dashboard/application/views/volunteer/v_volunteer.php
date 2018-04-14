@@ -11,6 +11,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('templates/v_left_menu'); ?>
     <div class="page">
       <?php $this->load->view('templates/v_top_menu'); ?>
+      <section class="dashboard-counts section-padding">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h4>AGE & GENDER OF VOLUNTEER</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>LOCATION</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>JOB</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <h4>CHANNEL</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h4>DATABASE VOLUNTEER</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <?php $this->load->view('templates/v_copyright'); ?>
     </div>
   </body>
