@@ -40,6 +40,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- page content -->
         <div class="right_col" role="main">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="dashboard_graph">
+                  <div class="row x_title">
+                    <div class="col-md-6">
+                       <h3>Setting </h3>
+                     </div>
+                  </div>
+                  <div class="x_content">
+                    <form data-parsley-validate class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12" for="registrasi">Registrasi State<span class="required">*</span>
+                        </label>
+                        <div class="col-md-1 col-sm-6 col-xs-12">
+                          <input type="text" id="registrasi" required="required" class="form-control col-md-7 col-xs-12" value="5">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12" for="report">Report State<span class="required">*</span>
+                        </label>
+                        <div class="col-md-1 col-sm-6 col-xs-12">
+                          <input type="text" id="report" required="required" class="form-control col-md-7 col-xs-12" value="2">
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+						              <button class="btn btn-primary" type="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- page content -->
 

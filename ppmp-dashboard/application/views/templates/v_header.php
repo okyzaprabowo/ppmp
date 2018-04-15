@@ -22,5 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url('assets/vendors/jqvmap/dist/jqvmap.min.css');?>">
 <!-- bootstrap-daterangepicker -->
 <link rel="stylesheet" href="<?php echo base_url('assets/vendors/bootstrap-daterangepicker/daterangepicker.css');?>">
+<!-- Datatables -->
+<link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css');?>">
 <!-- Custom Theme Style -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.min.css');?>">
