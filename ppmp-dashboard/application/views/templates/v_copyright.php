@@ -2,12 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<footer class="main-footer">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6">
-        <p><?php echo config_item('web_footer'); ?></p>
-      </div>
-    </div>
+<footer>
+  <div class="pull-right">
+    <?php echo config_item('web_footer'); ?>
   </div>
+  <div class="clearfix"></div>
 </footer>

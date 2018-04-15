@@ -2,25 +2,24 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<!-- navbar-->
-<header class="header">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-holder d-flex align-items-center justify-content-between">
-        <div class="navbar-header">
-          <!-- <a id="toggle-btn" href="#" class="menu-btn">
-            <i class="icon-bars"></i>
-          </a> -->
-          <a href="index.html" class="navbar-brand">
-            <div class="brand-text d-none d-md-inline-block"><span></span>
-              <strong class="text-primary">Simpul Relawan Dashboard</strong>
-            </div>
-          </a>
-        </div>
-        <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-          <li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
-        </ul>
+<div class="top_nav">
+  <div class="nav_menu">
+    <nav>
+      <div class="nav toggle">
+        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
       </div>
-    </div>
-  </nav>
-</header>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="">
+          <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <img src="<?php echo base_url('assets/images/avatar-1.jpg');?>" alt="">User
+            <span class=" fa fa-angle-down"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li><a href="javascript:;"> Profile</a></li>
+            <li><a href="javascript:;"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

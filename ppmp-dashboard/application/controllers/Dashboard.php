@@ -10,7 +10,13 @@ class Dashboard extends CI_Controller{
 
   public function index()
   {
-    $this->load->view('dashboard/v_dashboard');
+    $this->load->library('googlemaps');
+    $config['center'] = "-2.6000285, 118.015776";
+		$config['zoom'] = 5;
+    $config['map_height'] = "300px";
+    $this->googlemaps->initialize($config);
+    $data['map'] = $this->googlemaps->create_map();
+    $this->load->view('dashboard/v_dashboard', $data);
   }
 
 }
