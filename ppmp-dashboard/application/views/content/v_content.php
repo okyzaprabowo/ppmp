@@ -40,6 +40,83 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- page content -->
         <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Content</h3>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Content Filter</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Category</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <select class="form-control">
+                            <option>--Choose Category--</option>
+                            <?php
+      												foreach($arr_category as $row)
+      												{
+      													if($row->id == $val_category){
+      														echo '<option value="'.$row->id.'" selected>'.$row->item.'</option>';
+      													}else{
+      												   	echo '<option value="'.$row->id.'">'.$row->item.'</option>';
+      													}
+      												}
+      		            			?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Topic</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <select class="form-control">
+                            <option>--Choose Topic--</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Date Range</label>
+                        <div class="col-md-4">
+                          <div id="reportrange_right" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Content Result</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- page content -->
 
@@ -48,5 +125,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- footer content -->
       </div>
     <?php $this->load->view('templates/v_footer'); ?>
+
+    <script>
+    </script>
+
   </body>
 </html>

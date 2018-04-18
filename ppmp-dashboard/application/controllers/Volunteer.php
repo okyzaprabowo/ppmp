@@ -10,7 +10,13 @@ class Volunteer extends CI_Controller{
 
   public function index()
   {
-    $this->load->view('volunteer/v_volunteer');
+    $data['volunteer'] = $this->M_crud->_get_data('*', 'bot_reg');
+    $this->load->view('volunteer/v_volunteer', $data);
+  }
+
+  public function detail_volunteer($id)
+  {
+    $this->load->view('volunteer/v_detail_volunteer');
   }
 
 }
