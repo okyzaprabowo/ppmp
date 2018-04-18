@@ -45,9 +45,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="x_panel tile">
               <div class="dashboard_graph">
                 <div class="row x_title">
-                  <div class="col-md-6">
-                     <h3>Age & Gender Of Volunteer </h3>
-                   </div>
+                   <h2>Age & Gender Of Volunteer</h2>
+                   <ul class="nav navbar-right panel_toolbox">
+                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                   </ul>
+                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <canvas id="agechart" width="500" height="150"></canvas>
@@ -63,10 +65,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                     <h3>Location </h3>
-                   </div>
+                <div class="x_title">
+                   <h2>Location</h2>
+                   <ul class="nav navbar-right panel_toolbox">
+                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                   </ul>
+                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <div class="widget_summary">
@@ -147,10 +151,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                     <h3>Job </h3>
-                   </div>
+                <div class="x_title">
+                   <h2>Job</h2>
+                   <ul class="nav navbar-right panel_toolbox">
+                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                   </ul>
+                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <table class="" style="width:100%">
@@ -203,10 +209,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                     <h3>Channel </h3>
-                   </div>
+                <div class="x_title">
+                   <h2>Channel</h2>
+                   <ul class="nav navbar-right panel_toolbox">
+                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                   </ul>
+                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <div class="widget_summary">
@@ -289,12 +297,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel tile">
-              <div class="dashboard_graph">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                     <h3>Volunteer Database</h3>
-                   </div>
+            <div class="x_panel">
+                <div class="x_title">
+                   <h2>Volunteer Database</h2>
+                   <ul class="nav navbar-right panel_toolbox">
+                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                   </ul>
+                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
@@ -305,7 +314,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th style="text-align: center;">Jenis Kelamin</th>
                           <th style="text-align: center;">Domisili</th>
                           <th style="text-align: center;">Kegiatan</th>
-                          <th style="text-align: center; width: 5%;">Aksi</th>
+                          <th style="text-align: center; width: 5%;">Detail</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -331,7 +340,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </tbody>
                     </table>
                 </div>
-              </div>
             </div>
           </div>
         </div>

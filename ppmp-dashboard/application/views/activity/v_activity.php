@@ -45,9 +45,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="x_panel tile">
                 <div class="dashboard_graph">
                   <div class="row x_title">
-                    <div class="col-md-6">
-                       <h3>Activity</h3>
-                     </div>
+                     <h2>Activity</h2>
+                     <ul class="nav navbar-right panel_toolbox">
+                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                     </ul>
+                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">

@@ -43,36 +43,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
            <div class="col-md-12 col-sm-12 col-xs-12">
-             <div class="dashboard_graph">
-               <div class="row x_title">
-                 <div class="col-md-6">
-                    <h3>Key Metrics </h3>
-                  </div>
+             <div class="x_panel">
+               <div class="x_title">
+                  <h2>Key Metrics</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </ul>
+                  <div class="clearfix"></div>
                </div>
-               <div class="row tile_count">
-                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                   <span class="count_top"><i class="fa fa-user"></i> Unique Volunteers</span>
-                   <div class="count">235K</div>
-                 </div>
-                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                   <span class="count_top"><i class="fa fa-male"></i> New Volunteers</span>
-                   <div class="count">1500</div>
-                 </div>
-                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                   <span class="count_top"><i class="fa fa-newspaper-o"></i> Content Amount</span>
-                   <div class="count">1900</div>
-                 </div>
-                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                   <span class="count_top"><i class="fa fa-flag-o"></i> Sessions</span>
-                   <div class="count">97.0K</div>
-                 </div>
-                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                   <span class="count_top"><i class="fa fa-shield"></i> Finished Mission</span>
-                   <div class="count">2,500</div>
-                 </div>
-                 <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                   <span class="count_top"><i class="fa fa-file-o"></i> Reports</span>
-                   <div class="count">4,000</div>
+               <div class="x_content">
+                 <div class="row tile_count">
+                   <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                     <span class="count_top"><i class="fa fa-user"></i> Unique Volunteers</span>
+                     <div class="count">235K</div>
+                   </div>
+                   <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                     <span class="count_top"><i class="fa fa-male"></i> New Volunteers</span>
+                     <div class="count">1500</div>
+                   </div>
+                   <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                     <span class="count_top"><i class="fa fa-newspaper-o"></i> Content Amount</span>
+                     <div class="count">1900</div>
+                   </div>
+                   <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                     <span class="count_top"><i class="fa fa-flag-o"></i> Sessions</span>
+                     <div class="count">97.0K</div>
+                   </div>
+                   <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                     <span class="count_top"><i class="fa fa-shield"></i> Finished Mission</span>
+                     <div class="count">2,500</div>
+                   </div>
+                   <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                     <span class="count_top"><i class="fa fa-file-o"></i> Reports</span>
+                     <div class="count">4,000</div>
+                   </div>
                  </div>
                </div>
              </div>
@@ -83,13 +87,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="dashboard_graph">
-              <div class="row x_title">
-                <div class="col-md-6">
-                   <h3>Spread Map </h3>
-                 </div>
+            <div class="x_panel">
+              <div class="x_title">
+                 <h2>Spread Map</h2>
+                 <ul class="nav navbar-right panel_toolbox">
+                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                 </ul>
+                 <div class="clearfix"></div>
               </div>
-              <?php echo $map['html']; ?>
+              <div class="x_content">
+                <?php echo $map['html']; ?>
+              </div>
             </div>
           </div>
         </div>
@@ -98,79 +106,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
           <div class="col-md-6 col-sm-4 col-xs-12">
-            <div class="x_panel tile fixed_height_320">
-              <div class="dashboard_graph">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                     <h3>Popular Topics </h3>
-                   </div>
-                </div>
-                <div class="x_content">
-                  <table class="" style="width:100%">
-                    <tr>
-                      <th style="width:37%;">
-                        <p>Top 5</p>
-                      </th>
-                      <th>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                          <p class="">Topics</p>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                          <p class="">Percentage</p>
-                        </div>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                      </td>
-                      <td>
-                        <table class="tile_info">
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square blue"></i>Political </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Social </p>
-                            </td>
-                            <td>10%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Economic </p>
-                            </td>
-                            <td>20%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square aero"></i>Elections </p>
-                            </td>
-                            <td>15%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square red"></i>Others </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+            <div class="x_panel">
+              <div class="x_title">
+                 <h2>Popular Topics</h2>
+                 <ul class="nav navbar-right panel_toolbox">
+                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                 </ul>
+                 <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <table class="" style="width:100%">
+                  <tr>
+                    <th style="width:37%;">
+                      <p>Top 5</p>
+                    </th>
+                    <th>
+                      <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <p class="">Topics</p>
+                      </div>
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <p class="">Percentage</p>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                    </td>
+                    <td>
+                      <table class="tile_info">
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square blue"></i>Political </p>
+                          </td>
+                          <td>30%</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square green"></i>Social </p>
+                          </td>
+                          <td>10%</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square purple"></i>Economic </p>
+                          </td>
+                          <td>20%</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square aero"></i>Elections </p>
+                          </td>
+                          <td>15%</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p><i class="fa fa-square red"></i>Others </p>
+                          </td>
+                          <td>30%</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
 
           <div class="col-md-6 col-sm-4 col-xs-12">
-            <div class="dashboard_graph">
-              <div class="row x_title">
-                <div class="col-md-6">
-                   <h3>Popular Media </h3>
-                 </div>
+            <div class="x_panel">
+              <div class="x_title">
+                 <h2>Popular Media</h2>
+                 <ul class="nav navbar-right panel_toolbox">
+                   <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                 </ul>
+                 <div class="clearfix"></div>
               </div>
               <div class="x_content">
                 <div class="widget_summary">

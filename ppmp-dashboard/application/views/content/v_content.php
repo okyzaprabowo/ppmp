@@ -112,6 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
+                    
                   </div>
                 </div>
               </div>
