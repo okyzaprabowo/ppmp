@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br />
 
         <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="col-md-6 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
                 <div class="x_title">
@@ -148,65 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="x_panel tile fixed_height_320">
-              <div class="dashboard_graph">
-                <div class="x_title">
-                   <h2>Job</h2>
-                   <ul class="nav navbar-right panel_toolbox">
-                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                   </ul>
-                   <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <table class="" style="width:100%">
-                    <tr>
-                      <th style="width:37%;">
-                      </th>
-                      <th>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                      </td>
-                      <td>
-                        <table class="tile_info">
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square blue"></i>PNS </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Karyawan Swasta </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Pelajar </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square aero"></i>Mahasiswa </p>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square red"></i>Wiraswasta </p>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="col-md-6 col-sm-4 col-xs-12">
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
                 <div class="x_title">
@@ -288,6 +230,94 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="clearfix"></div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-md-6 col-sm-4 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Kegiatan</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_kegiatan" style="height:350px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-4 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Bidang Kegiatan</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_bidang" style="height:350px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Pendidikan</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_pendidikan" style="height:350px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Minat/Komunitas</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_komunitas" style="height:350px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Kemampuan Khusus</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_kemampuan" style="height:350px;"></div>
               </div>
             </div>
           </div>
@@ -414,5 +444,768 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         } // options
       }
     );
+
+    var theme = {
+        				  color: [
+        					  '#34d423', '#c1429b', '#c09ada', '#270b44',
+                    '#300616', '#6b6707', '#8b60dc', '#3ea125',
+                    '#84b81d', '#9ef4c1', '#c8c23d', '#5b79a0',
+          					'#fec280', '#45f69c', '#e25a20', '#2ce366'
+        				  ],
+
+        				  title: {
+        					  itemGap: 8,
+        					  textStyle: {
+        						  fontWeight: 'normal',
+        						  color: '#408829'
+        					  }
+        				  },
+
+        				  dataRange: {
+        					  color: ['#1f610a', '#97b58d']
+        				  },
+
+        				  toolbox: {
+        					  color: ['#408829', '#408829', '#408829', '#408829']
+        				  },
+
+        				  tooltip: {
+        					  backgroundColor: 'rgba(0,0,0,0.5)',
+        					  axisPointer: {
+        						  type: 'line',
+        						  lineStyle: {
+        							  color: '#408829',
+        							  type: 'dashed'
+        						  },
+        						  crossStyle: {
+        							  color: '#408829'
+        						  },
+        						  shadowStyle: {
+        							  color: 'rgba(200,200,200,0.3)'
+        						  }
+        					  }
+        				  },
+
+        				  dataZoom: {
+        					  dataBackgroundColor: '#eee',
+        					  fillerColor: 'rgba(64,136,41,0.2)',
+        					  handleColor: '#408829'
+        				  },
+
+        				  grid: {
+        					  borderWidth: 0
+        				  },
+
+        				  categoryAxis: {
+        					  axisLine: {
+        						  lineStyle: {
+        							  color: '#408829'
+        						  }
+        					  },
+        					  splitLine: {
+        						  lineStyle: {
+        							  color: ['#eee']
+        						  }
+        					  }
+        				  },
+
+        				  valueAxis: {
+        					  axisLine: {
+        						  lineStyle: {
+        							  color: '#408829'
+        						  }
+        					  },
+        					  splitArea: {
+        						  show: true,
+        						  areaStyle: {
+        							  color: ['rgba(250,250,250,0.1)', 'rgba(200,200,200,0.1)']
+        						  }
+        					  },
+        					  splitLine: {
+        						  lineStyle: {
+        							  color: ['#eee']
+        						  }
+        					  }
+        				  },
+
+        				  timeline: {
+        					  lineStyle: {
+        						  color: '#408829'
+        					  },
+        					  controlStyle: {
+        						  normal: {color: '#408829'},
+        						  emphasis: {color: '#408829'}
+        					  }
+        				  },
+
+    				  k: {
+    					  itemStyle: {
+    						  normal: {
+    							  color: '#68a54a',
+    							  color0: '#a9cba2',
+    							  lineStyle: {
+    								  width: 1,
+    								  color: '#408829',
+    								  color0: '#86b379'
+    							  }
+    						  }
+    					  }
+    				  },
+    				  map: {
+    					  itemStyle: {
+    						  normal: {
+    							  areaStyle: {
+    								  color: '#ddd'
+    							  },
+    							  label: {
+    								  textStyle: {
+    									  color: '#c12e34'
+    								  }
+    							  }
+    						  },
+    						  emphasis: {
+    							  areaStyle: {
+    								  color: '#99d2dd'
+    							  },
+    							  label: {
+    								  textStyle: {
+    									  color: '#c12e34'
+    								  }
+    							  }
+    						  }
+    					  }
+    				  },
+    				  force: {
+    					  itemStyle: {
+    						  normal: {
+    							  linkStyle: {
+    								  strokeColor: '#408829'
+    							  }
+    						  }
+    					  }
+    				  },
+    				  chord: {
+    					  padding: 4,
+    					  itemStyle: {
+    						  normal: {
+    							  lineStyle: {
+    								  width: 1,
+    								  color: 'rgba(128, 128, 128, 0.5)'
+    							  },
+    							  chordStyle: {
+    								  lineStyle: {
+    									  width: 1,
+    									  color: 'rgba(128, 128, 128, 0.5)'
+    								  }
+    							  }
+    						  },
+    						  emphasis: {
+    							  lineStyle: {
+    								  width: 1,
+    								  color: 'rgba(128, 128, 128, 0.5)'
+    							  },
+    							  chordStyle: {
+    								  lineStyle: {
+    									  width: 1,
+    									  color: 'rgba(128, 128, 128, 0.5)'
+    								  }
+    							  }
+    						  }
+    					  }
+    				  },
+    				  gauge: {
+    					  startAngle: 225,
+    					  endAngle: -45,
+    					  axisLine: {
+    						  show: true,
+    						  lineStyle: {
+    							  color: [[0.2, '#86b379'], [0.8, '#68a54a'], [1, '#408829']],
+    							  width: 8
+    						  }
+    					  },
+    					  axisTick: {
+    						  splitNumber: 10,
+    						  length: 12,
+    						  lineStyle: {
+    							  color: 'auto'
+    						  }
+    					  },
+    					  axisLabel: {
+    						  textStyle: {
+    							  color: 'auto'
+    						  }
+    					  },
+    					  splitLine: {
+    						  length: 18,
+    						  lineStyle: {
+    							  color: 'auto'
+    						  }
+    					  },
+    					  pointer: {
+    						  length: '90%',
+    						  color: 'auto'
+    					  },
+    					  title: {
+    						  textStyle: {
+    							  color: '#333'
+    						  }
+    					  },
+    					  detail: {
+    						  textStyle: {
+    							  color: 'auto'
+    						  }
+    					  }
+    				  },
+    				  textStyle: {
+    					  fontFamily: 'Arial, Verdana, sans-serif'
+    				  }
+    			  };
+
+
+    if ($('#echart_kegiatan').length ){
+
+      var echartkegiatan = echarts.init(document.getElementById('echart_kegiatan'), theme);
+
+      echartkegiatan.setOption({
+    	tooltip: {
+    	  trigger: 'item',
+    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+    	},
+    	legend: {
+    	  x: 'center',
+    	  y: 'right',
+    	  data: ['Pelajar/Mahasiswa', 'Pegawai Negeri', 'Pegawai Swasta', 'Pegawai BUMN', 'Wiraswasta', 'Pensiunan', 'Pekerja Lepas (Freelance)', 'TNI/POLRI', 'Mengurus Rumah Tangga', 'Belum/Tidak Bekerja']
+    	},
+    	toolbox: {
+    	  show: true,
+    	  feature: {
+    		magicType: {
+    		  show: true,
+    		  type: ['pie', 'funnel'],
+    		  option: {
+    			funnel: {
+    			  x: '25%',
+    			  width: '50%',
+    			  funnelAlign: 'left',
+    			  max: 1548
+    			}
+    		  }
+    		}
+    	  }
+    	},
+    	calculable: true,
+    	series: [{
+    	  name: 'Kegiatan',
+    	  type: 'pie',
+    	  radius: '55%',
+    	  center: ['50%', '48%'],
+    	  data: [{
+    		value: 335,
+    		name: 'Pelajar/Mahasiswa'
+    	  }, {
+    		value: 310,
+    		name: 'Pegawai Negeri'
+    	  }, {
+    		value: 234,
+    		name: 'Pegawai Swasta'
+    	  }, {
+    		value: 135,
+    		name: 'Pegawai BUMN'
+    	  }, {
+    		value: 154,
+    		name: 'Wiraswasta'
+        },{
+        value: 335,
+        name: 'Pensiunan'
+        }, {
+        value: 310,
+        name: 'Pekerja Lepas (Freelance)'
+        }, {
+        value: 234,
+        name: 'TNI/POLRI'
+        }, {
+        value: 135,
+        name: 'Mengurus Rumah Tangga'
+        }, {
+        value: 154,
+        name: 'Belum/Tidak Bekerja'
+        }]
+    	}]
+      });
+
+      var dataStyle = {
+    	normal: {
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	}
+      };
+
+      var placeHolderStyle = {
+    	normal: {
+    	  color: 'rgba(0,0,0,0)',
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	},
+    	emphasis: {
+    	  color: 'rgba(0,0,0,0)'
+    	}
+      };
+
+    }
+
+    if ($('#echart_bidang').length ){
+
+      var echartbidang = echarts.init(document.getElementById('echart_bidang'), theme);
+
+      echartbidang.setOption({
+        tooltip: {
+          trigger: 'item',
+          formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+          x: 'center',
+          y: 'right',
+          data: ['Pendidikan', 'Pertanian dan Perkebunan', 'Peternakan', 'Perikanan', 'Kesehatan', 'Hukum', 'Manufaktur', 'Konstruksi', 'Consumer Goods', 'Energi', 'Media', 'Pertambangan', 'Politik', 'IT', 'Startup', 'Keuangan', 'Pariwisata', 'Logistik', 'Transportasi', 'Pemasaran', 'Properti', 'Telekomunikasi', 'Seni', 'Entertainment']
+        },
+        toolbox: {
+          show: true,
+          feature: {
+          magicType: {
+            show: true,
+            type: ['pie', 'funnel'],
+            option: {
+            funnel: {
+              x: '25%',
+              width: '50%',
+              funnelAlign: 'left',
+              max: 1548
+            }
+            }
+          }
+          }
+        },
+        calculable: true,
+        series: [{
+          name: 'Bidang Kegiatan',
+          type: 'pie',
+          radius: '55%',
+          center: ['50%', '48%'],
+          data: [{
+          value: 335,
+          name: 'Pendidikan'
+          }, {
+          value: 310,
+          name: 'Pertanian dan Perkebunan'
+          }, {
+          value: 234,
+          name: 'Peternakan'
+          }, {
+          value: 135,
+          name: 'Perikanan'
+          }, {
+          value: 154,
+          name: 'Kesehatan'
+          },{
+          value: 234,
+          name: 'Hukum'
+          },{
+          value: 135,
+          name: 'Manufaktur'
+          },{
+          value: 335,
+          name: 'Konstruksi'
+          }, {
+          value: 310,
+          name: 'Consumer Goods'
+          }, {
+          value: 234,
+          name: 'Energi'
+          }, {
+          value: 135,
+          name: 'Media'
+          }, {
+          value: 154,
+          name: 'Pertambangan'
+          },{
+          value: 234,
+          name: 'Politik'
+          },{
+          value: 135,
+          name: 'IT'
+          },{
+          value: 335,
+          name: 'Startup'
+          }, {
+          value: 310,
+          name: 'Keuangan'
+          }, {
+          value: 234,
+          name: 'Pariwisata'
+          }, {
+          value: 135,
+          name: 'Logistik'
+          }, {
+          value: 154,
+          name: 'Transportasi'
+          },{
+          value: 234,
+          name: 'Pemasaran'
+          },{
+          value: 135,
+          name: 'Properti'
+          },{
+          value: 154,
+          name: 'Telekomunikasi'
+          },{
+          value: 234,
+          name: 'Seni'
+          },{
+          value: 135,
+          name: 'Entertainment'
+          }]
+    	}]
+      });
+
+      var dataStyle = {
+    	normal: {
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	}
+      };
+
+      var placeHolderStyle = {
+    	normal: {
+    	  color: 'rgba(0,0,0,0)',
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	},
+    	emphasis: {
+    	  color: 'rgba(0,0,0,0)'
+    	}
+      };
+
+    }
+
+    if ($('#echart_pendidikan').length ){
+
+      var echartpendidikan = echarts.init(document.getElementById('echart_pendidikan'), theme);
+
+      echartpendidikan.setOption({
+        tooltip: {
+      	  trigger: 'item',
+      	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+      	},
+      	legend: {
+      	  x: 'center',
+      	  y: 'right',
+      	  data: ['SD', 'SMP', 'SMA', 'S1', 'S2', 'S3', 'Tidak menempuh pendidikan']
+      	},
+      	toolbox: {
+      	  show: true,
+      	  feature: {
+      		magicType: {
+      		  show: true,
+      		  type: ['pie', 'funnel'],
+      		  option: {
+      			funnel: {
+      			  x: '25%',
+      			  width: '50%',
+      			  funnelAlign: 'left',
+      			  max: 1548
+      			}
+      		  }
+      		}
+      	  }
+      	},
+      	calculable: true,
+      	series: [{
+          name: 'Pendidikan',
+      	  type: 'pie',
+      	  radius: '55%',
+      	  center: ['50%', '48%'],
+      	  data: [{
+      		value: 335,
+      		name: 'SD'
+      	  }, {
+      		value: 310,
+      		name: 'SMP'
+      	  }, {
+      		value: 234,
+      		name: 'SMA'
+      	  }, {
+      		value: 135,
+      		name: 'S1'
+      	  }, {
+      		value: 154,
+      		name: 'S2'
+          },{
+      		value: 234,
+      		name: 'S3'
+      	  },{
+      		value: 135,
+      		name: 'Tidak menempuh pendidikan'
+      	  }]
+    	}]
+      });
+
+      var dataStyle = {
+    	normal: {
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	}
+      };
+
+      var placeHolderStyle = {
+    	normal: {
+    	  color: 'rgba(0,0,0,0)',
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	},
+    	emphasis: {
+    	  color: 'rgba(0,0,0,0)'
+    	}
+      };
+
+    }
+
+    if ($('#echart_komunitas').length ){
+
+      var echartkomunitas = echarts.init(document.getElementById('echart_komunitas'), theme);
+
+      echartkomunitas.setOption({
+    	tooltip: {
+    	  trigger: 'item',
+    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+    	},
+    	legend: {
+    	  x: 'center',
+    	  y: 'right',
+    	  data: ['Olahraga', 'Kecantikan', 'Gaya hidup', 'Seni', 'Musik', 'Budaya', 'Budaya popular', 'Film', 'Kuliner', 'Travel', 'Literatur', 'Teknologi', 'Bisnis', 'Kerja sosial/amal']
+    	},
+    	toolbox: {
+    	  show: true,
+    	  feature: {
+    		magicType: {
+    		  show: true,
+    		  type: ['pie', 'funnel'],
+    		  option: {
+    			funnel: {
+    			  x: '25%',
+    			  width: '50%',
+    			  funnelAlign: 'left',
+    			  max: 1548
+    			}
+    		  }
+    		}
+    	  }
+    	},
+    	calculable: true,
+    	series: [{
+        name: 'Minat/Komunitas',
+    	  type: 'pie',
+    	  radius: '55%',
+    	  center: ['50%', '48%'],
+    	  data: [{
+    		value: 335,
+    		name: 'Olahraga'
+    	  }, {
+    		value: 310,
+    		name: 'Kecantikan'
+    	  }, {
+    		value: 234,
+    		name: 'Gaya hidup'
+    	  }, {
+    		value: 135,
+    		name: 'Seni'
+    	  }, {
+    		value: 154,
+    		name: 'Musik'
+        },{
+    		value: 234,
+    		name: 'Budaya'
+    	  },{
+    		value: 135,
+    		name: 'Budaya popular'
+        },{
+        value: 335,
+        name: 'Film'
+        }, {
+        value: 310,
+        name: 'Kuliner'
+        }, {
+        value: 234,
+        name: 'Travel'
+        }, {
+        value: 135,
+        name: 'Literatur'
+        }, {
+        value: 154,
+        name: 'Teknologi'
+        },{
+        value: 234,
+        name: 'Bisnis'
+        },{
+        value: 135,
+        name: 'Kerja sosial/amal'
+        }]
+    	}]
+      });
+
+      var dataStyle = {
+    	normal: {
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	}
+      };
+
+      var placeHolderStyle = {
+    	normal: {
+    	  color: 'rgba(0,0,0,0)',
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	},
+    	emphasis: {
+    	  color: 'rgba(0,0,0,0)'
+    	}
+      };
+
+    }
+
+    if ($('#echart_kemampuan').length ){
+
+      var echartkemampuan = echarts.init(document.getElementById('echart_kemampuan'), theme);
+
+      echartkemampuan.setOption({
+    	tooltip: {
+    	  trigger: 'item',
+    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+    	},
+    	legend: {
+    	  x: 'center',
+    	  y: 'right',
+    	  data: ['Menulis', 'Programming', 'Fotografi', 'Video', 'Desain Grafis', 'Public Speaking', 'Event Organizer', 'Musisi', 'Engineering', 'Logistik / distribusi', 'Pemasaran', 'Lainnya']
+    	},
+    	toolbox: {
+    	  show: true,
+    	  feature: {
+    		magicType: {
+    		  show: true,
+    		  type: ['pie', 'funnel'],
+    		  option: {
+    			funnel: {
+    			  x: '25%',
+    			  width: '50%',
+    			  funnelAlign: 'left',
+    			  max: 1548
+    			}
+    		  }
+    		}
+    	  }
+    	},
+    	calculable: true,
+    	series: [{
+    	  name: 'Kemampuan Khusus',
+    	  type: 'pie',
+    	  radius: '55%',
+    	  center: ['50%', '48%'],
+    	  data: [{
+    		value: 335,
+    		name: 'Menulis'
+    	  }, {
+    		value: 310,
+    		name: 'Programming'
+    	  }, {
+    		value: 234,
+    		name: 'Fotografi'
+    	  }, {
+    		value: 135,
+    		name: 'Video'
+    	  }, {
+    		value: 154,
+    		name: 'Desain Grafis'
+        },{
+    		value: 234,
+    		name: 'Public Speaking'
+    	  },{
+    		value: 135,
+    		name: 'Event Organizer'
+        },{
+        value: 234,
+        name: 'Musisi'
+        }, {
+        value: 135,
+        name: 'Engineering'
+        }, {
+        value: 154,
+        name: 'Logistik / distribusi'
+        },{
+        value: 234,
+        name: 'Pemasaran'
+        },{
+        value: 135,
+        name: 'Lainnya'
+        }]
+    	}]
+      });
+
+      var dataStyle = {
+    	normal: {
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	}
+      };
+
+      var placeHolderStyle = {
+    	normal: {
+    	  color: 'rgba(0,0,0,0)',
+    	  label: {
+    		show: false
+    	  },
+    	  labelLine: {
+    		show: false
+    	  }
+    	},
+    	emphasis: {
+    	  color: 'rgba(0,0,0,0)'
+    	}
+      };
+
+    }
 </script>
 </html>

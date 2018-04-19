@@ -55,5 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets/vendors/jszip/dist/jszip.min.js');?>"></script>
 <script src="<?php echo base_url('assets/vendors/pdfmake/build/pdfmake.min.js');?>"></script>
 <script src="<?php echo base_url('assets/vendors/pdfmake/build/vfs_fonts.js');?>"></script>
+<!-- ECharts -->
+<script src="<?php echo base_url('assets/vendors/echarts/dist/echarts.min.js');?>"></script>
+<script src="<?php echo base_url('assets/vendors/echarts/map/js/world.js');?>"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url('assets/js/custom.min.js');?>"></script>
