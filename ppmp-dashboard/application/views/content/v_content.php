@@ -61,10 +61,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <br />
                     <form class="form-horizontal form-label-left">
                       <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Category</label>
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Kategori</label>
                         <div class="col-md-4 col-sm-9 col-xs-12">
                           <select class="form-control">
-                            <option>--Choose Category--</option>
+                            <option>--Pilih Kategori--</option>
                             <?php
       												foreach($arr_category as $row)
       												{
@@ -79,10 +79,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Topic</label>
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Topik</label>
                         <div class="col-md-4 col-sm-9 col-xs-12">
                           <select class="form-control">
-                            <option>--Choose Topic--</option>
+                            <option>--Pilih Topik--</option>
                           </select>
                         </div>
                       </div>
@@ -112,7 +112,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    
+                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                          <tr>
+                            <th>Kategori</th>
+                            <th>Topik</th>
+                            <th>Tanggal</th>
+                            <th>Konten</th>
+                            <th>Nama Relawan</th>
+                            <th>Detail</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
                   </div>
                 </div>
               </div>

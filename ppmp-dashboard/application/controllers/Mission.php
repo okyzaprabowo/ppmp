@@ -13,4 +13,9 @@ class Mission extends CI_Controller{
     $this->load->view('mission/v_mission');
   }
 
+  public function add_mission()
+  {
+    $this->load->view('mission/v_mission_add');
+  }
+
 }
