@@ -75,4 +75,17 @@ class M_crud extends CI_Model {
     }
 	}
 
+  function custom_query($mysql_query)
+  {
+  	$query = $this->db->query($mysql_query);
+  	return $query->result();
+  }
+
+  function get_find_query($select)
+	{
+		$this->db->select($select);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 }

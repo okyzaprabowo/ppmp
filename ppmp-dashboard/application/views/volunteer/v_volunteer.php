@@ -165,9 +165,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="w_center" style="width: 50%;">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                          <span class="sr-only">60% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $whatsapp ?>"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: <?= $whatsapp ?>%;">
+                          <span class="sr-only"><?= $whatsapp ?>% Complete</span>
                         </div>
                       </div>
                     </div>
@@ -179,9 +179,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="w_center" style="width: 50%;">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="40"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                          <span class="sr-only">40% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $line ?>"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: <?= $line ?>%;">
+                          <span class="sr-only"><?= $line ?>% Complete</span>
                         </div>
                       </div>
                     </div>
@@ -193,9 +193,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="w_center" style="width: 50%;">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="70"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                          <span class="sr-only">70% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $instagram ?>"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: <?= $instagram ?>%;">
+                          <span class="sr-only"><?= $instagram ?>% Complete</span>
                         </div>
                       </div>
                     </div>
@@ -203,13 +203,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <div class="widget_summary">
                     <div class="w_left" style="width: 50%;">
-                      <span>Facebook</span>
+                      <span>Twitter</span>
                     </div>
                     <div class="w_center" style="width: 50%;">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="20"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-                          <span class="sr-only">20% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $twitter ?>"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: <?= $twitter ?>%;">
+                          <span class="sr-only"><?= $twitter ?>% Complete</span>
                         </div>
                       </div>
                     </div>
@@ -221,9 +221,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="w_center" style="width: 50%;">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="50"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                          <span class="sr-only">50% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $telegram ?>"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: <?= $telegram ?>%;">
+                          <span class="sr-only"><?= $telegram ?>% Complete</span>
                         </div>
                       </div>
                     </div>
@@ -342,8 +342,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th style="text-align: center; width: 5%;">No.</th>
                           <th style="text-align: center;">Nama Lengkap</th>
                           <th style="text-align: center;">Jenis Kelamin</th>
-                          <th style="text-align: center;">Domisili</th>
-                          <th style="text-align: center;">Kegiatan</th>
+                          <th style="text-align: center;">Alamat</th>
+                          <th style="text-align: center;">Pendidikan</th>
                           <th style="text-align: center; width: 5%;">Detail</th>
                         </tr>
                       </thead>
@@ -355,10 +355,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         ?>
                             <tr>
                               <td><?= $no ?></td>
-                              <td><?= $data->c1 ?></td>
-                              <td><?= $data->c2 ?></td>
-                              <td><?= $data->c4 ?></td>
-                              <td><?= $data->c5 ?></td>
+                              <td><?= $data->name ?></td>
+                              <td>
+                              <?php
+                                if($data->gender == 'L'){
+                                  echo "Laki-Laki";
+                                }else{
+                                  echo "Perempuan";
+                                }
+                              ?>
+                              </td>
+                              <td><?= $data->address ?></td>
+                              <td><?= $data->education ?></td>
                               <td><a class="btn btn-warning btn-xs" href="<?php echo site_url('Volunteer/detail_volunteer').'/'.$data->user_id;?>">
     										           <i class="fa fa-binoculars" title="Detail"></i></a></td>
                             </tr>
@@ -381,69 +389,94 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <?php $this->load->view('templates/v_copyright'); ?>
       <!-- footer content -->
     </div>
+    <input type="hidden" id="vallk1" value="<?= $lelaki1 ?>" />
+    <input type="hidden" id="vallk2" value="<?= $lelaki2 ?>" />
+    <input type="hidden" id="vallk3" value="<?= $lelaki3 ?>" />
+    <input type="hidden" id="vallk4" value="<?= $lelaki4 ?>" />
+    <input type="hidden" id="vallk5" value="<?= $lelaki5 ?>" />
+    <input type="hidden" id="vallk6" value="<?= $lelaki6 ?>" />
+    <input type="hidden" id="valpr1" value="<?= $perempuan1 ?>" />
+    <input type="hidden" id="valpr2" value="<?= $perempuan2 ?>" />
+    <input type="hidden" id="valpr3" value="<?= $perempuan3 ?>" />
+    <input type="hidden" id="valpr4" value="<?= $perempuan4 ?>" />
+    <input type="hidden" id="valpr5" value="<?= $perempuan5 ?>" />
+    <input type="hidden" id="valpr6" value="<?= $perempuan6 ?>" />
   <?php $this->load->view('templates/v_footer'); ?>
 </body>
 <script type="text/javascript">
-    var numberWithCommas = function(x) {
-                              return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                          };
+var numberWithCommas = function(x) {
+                          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                      };
 
-    var dataPack1 = [21000, 22000, 26000, 35000, 55000, 55000];
-    var dataPack2 = [1000, 1200, 1300, 1400, 1060, 2030];
-    var dates = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
+var dataPack1 = [$('#vallk1').val(),$('#vallk2').val(),$('#vallk3').val(),$('#vallk4').val(),$('#vallk5').val(),$('#vallk6').val()];
+var dataPack2 = [$('#valpr1').val(),$('#valpr2').val(),$('#valpr3').val(),$('#valpr4').val(),$('#valpr5').val(),$('#valpr6').val()];
+console.log(dataPack1);
+var dates = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
+var bar_ctx = document.getElementById('agechart');
 
-    var bar_ctx = document.getElementById('agechart');
-    var bar_chart = new Chart(bar_ctx, {
-        type: 'bar',
-        data: {
-            labels: dates,
-            datasets: [
-            {
-                label: 'Male',
-                data: dataPack1,
-                backgroundColor: "rgba(55, 160, 225, 0.7)",
-                hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
-                hoverBorderWidth: 2,
-                hoverBorderColor: 'lightgrey'
-            },
-            {
-                label: 'Female',
-                data: dataPack2,
-                backgroundColor: "rgba(225, 58, 55, 0.7)",
-                hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
-                hoverBorderWidth: 2,
-                hoverBorderColor: 'lightgrey'
-            },
-            ]
+var bar_chart = new Chart(bar_ctx, {
+    type: 'bar',
+    data: {
+        labels: dates,
+        datasets: [
+        {
+            label: 'Male',
+            data: dataPack1,
+            backgroundColor: "rgba(55, 160, 225, 0.7)",
+            hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
+            hoverBorderWidth: 2,
+            hoverBorderColor: 'lightgrey'
         },
-        options: {
-            animation: {
-              duration: 10,
+        {
+            label: 'Female',
+            data: dataPack2,
+            backgroundColor: "rgba(225, 58, 55, 0.7)",
+            hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
+            hoverBorderWidth: 2,
+            hoverBorderColor: 'lightgrey'
+        },
+        ]
+    },
+    options: {
+        animation: {
+          duration: 10,
+        },
+        tooltips: {
+          mode: 'label',
+          callbacks: {
+          label: function(tooltipItem, data) {
+            return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
+          }
+          }
+         },
+        scales: {
+          xAxes: [{
+            stacked: true,
+            gridLines: { display: false },
+            }],
+          yAxes: [{
+            stacked: true,
+            ticks: {
+              callback: function(value) { return numberWithCommas(value); },
             },
-            tooltips: {
-              mode: 'label',
-              callbacks: {
-              label: function(tooltipItem, data) {
-                return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
-              }
-              }
-             },
-            scales: {
-              xAxes: [{
-                stacked: true,
-                gridLines: { display: false },
-                }],
-              yAxes: [{
-                stacked: true,
-                ticks: {
-                  callback: function(value) { return numberWithCommas(value); },
-                },
-                }],
-            }, // scales
-            legend: {display: true}
-        } // options
-      }
-    );
+            }],
+        }, // scales
+        legend: {display: true}
+    } // options
+  }
+);
+
+
+    // $.ajax({
+    //     url : "</?php echo site_url('Volunteer/getUmur')?>",
+    //     type: "GET",
+    //     dataType: "JSON",
+    //     success: function(data)
+    //     {
+    //       var dataPack1 = [data.laki1, data.laki2, data.laki3, data.laki4, data.laki5, data.laki6];
+    //       var dataPack2 = [data.perempuan1, data.perempuan2, data.perempuan3, data.perempuan4, data.perempuan5, data.perempuan6];
+    //   	}
+    //   });
 
     var theme = {
         				  color: [
@@ -666,546 +699,580 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       var echartkegiatan = echarts.init(document.getElementById('echart_kegiatan'), theme);
 
-      echartkegiatan.setOption({
-    	tooltip: {
-    	  trigger: 'item',
-    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
-    	},
-    	legend: {
-    	  x: 'center',
-    	  y: 'right',
-    	  data: ['Pelajar/Mahasiswa', 'Pegawai Negeri', 'Pegawai Swasta', 'Pegawai BUMN', 'Wiraswasta', 'Pensiunan', 'Pekerja Lepas (Freelance)', 'TNI/POLRI', 'Mengurus Rumah Tangga', 'Belum/Tidak Bekerja']
-    	},
-    	toolbox: {
-    	  show: true,
-    	  feature: {
-    		magicType: {
-    		  show: true,
-    		  type: ['pie', 'funnel'],
-    		  option: {
-    			funnel: {
-    			  x: '25%',
-    			  width: '50%',
-    			  funnelAlign: 'left',
-    			  max: 1548
-    			}
-    		  }
-    		}
-    	  }
-    	},
-    	calculable: true,
-    	series: [{
-    	  name: 'Kegiatan',
-    	  type: 'pie',
-    	  radius: '55%',
-    	  center: ['50%', '48%'],
-    	  data: [{
-    		value: 335,
-    		name: 'Pelajar/Mahasiswa'
-    	  }, {
-    		value: 310,
-    		name: 'Pegawai Negeri'
-    	  }, {
-    		value: 234,
-    		name: 'Pegawai Swasta'
-    	  }, {
-    		value: 135,
-    		name: 'Pegawai BUMN'
-    	  }, {
-    		value: 154,
-    		name: 'Wiraswasta'
-        },{
-        value: 335,
-        name: 'Pensiunan'
-        }, {
-        value: 310,
-        name: 'Pekerja Lepas (Freelance)'
-        }, {
-        value: 234,
-        name: 'TNI/POLRI'
-        }, {
-        value: 135,
-        name: 'Mengurus Rumah Tangga'
-        }, {
-        value: 154,
-        name: 'Belum/Tidak Bekerja'
-        }]
-    	}]
+      $.ajax({
+        url : "<?php echo site_url('Volunteer/getKegiatan')?>",
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+          echartkegiatan.setOption({
+        	tooltip: {
+        	  trigger: 'item',
+        	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+        	},
+        	legend: {
+        	  x: 'center',
+        	  y: 'right',
+        	  data: ['Pelajar/Mahasiswa', 'Pegawai Negeri', 'Pegawai Swasta', 'Pegawai BUMN', 'Wiraswasta', 'Pensiunan', 'Pekerja Lepas (Freelance)', 'TNI/POLRI', 'Mengurus Rumah Tangga', 'Belum/Tidak Bekerja']
+        	},
+        	toolbox: {
+        	  show: true,
+        	  feature: {
+        		magicType: {
+        		  show: true,
+        		  type: ['pie', 'funnel'],
+        		  option: {
+        			funnel: {
+        			  x: '25%',
+        			  width: '50%',
+        			  funnelAlign: 'left'
+        			}
+        		  }
+        		}
+        	  }
+        	},
+        	calculable: true,
+        	series: [{
+        	  name: 'Kegiatan',
+        	  type: 'pie',
+        	  radius: '55%',
+        	  center: ['50%', '48%'],
+        	  data: [{
+        		value: data.pelajar,
+        		name: 'Pelajar/Mahasiswa'
+        	  }, {
+        		value: data.pns,
+        		name: 'Pegawai Negeri'
+        	  }, {
+        		value: data.swasta,
+        		name: 'Pegawai Swasta'
+        	  }, {
+        		value: data.bumn,
+        		name: 'Pegawai BUMN'
+        	  }, {
+        		value: data.wiraswasta,
+        		name: 'Wiraswasta'
+            },{
+            value: data.pensiunan,
+            name: 'Pensiunan'
+            }, {
+            value: data.freelance,
+            name: 'Pekerja Lepas (Freelance)'
+            }, {
+            value: data.tni,
+            name: 'TNI/POLRI'
+            }, {
+            value: data.irt,
+            name: 'Mengurus Rumah Tangga'
+            }, {
+            value: data.tidak,
+            name: 'Belum/Tidak Bekerja'
+            }]
+        	}]
+          });
+
+          var dataStyle = {
+        	normal: {
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	}
+          };
+
+          var placeHolderStyle = {
+        	normal: {
+        	  color: 'rgba(0,0,0,0)',
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	},
+        	emphasis: {
+        	  color: 'rgba(0,0,0,0)'
+        	}
+          };
+      	}
       });
-
-      var dataStyle = {
-    	normal: {
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	}
-      };
-
-      var placeHolderStyle = {
-    	normal: {
-    	  color: 'rgba(0,0,0,0)',
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	},
-    	emphasis: {
-    	  color: 'rgba(0,0,0,0)'
-    	}
-      };
-
     }
 
     if ($('#echart_bidang').length ){
 
       var echartbidang = echarts.init(document.getElementById('echart_bidang'), theme);
 
-      echartbidang.setOption({
-        tooltip: {
-          trigger: 'item',
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        legend: {
-          x: 'center',
-          y: 'right',
-          data: ['Pendidikan', 'Pertanian dan Perkebunan', 'Peternakan', 'Perikanan', 'Kesehatan', 'Hukum', 'Manufaktur', 'Konstruksi', 'Consumer Goods', 'Energi', 'Media', 'Pertambangan', 'Politik', 'IT', 'Startup', 'Keuangan', 'Pariwisata', 'Logistik', 'Transportasi', 'Pemasaran', 'Properti', 'Telekomunikasi', 'Seni', 'Entertainment']
-        },
-        toolbox: {
-          show: true,
-          feature: {
-          magicType: {
-            show: true,
-            type: ['pie', 'funnel'],
-            option: {
-            funnel: {
-              x: '25%',
-              width: '50%',
-              funnelAlign: 'left',
-              max: 1548
-            }
-            }
-          }
-          }
-        },
-        calculable: true,
-        series: [{
-          name: 'Bidang Kegiatan',
-          type: 'pie',
-          radius: '55%',
-          center: ['50%', '48%'],
-          data: [{
-          value: 335,
-          name: 'Pendidikan'
-          }, {
-          value: 310,
-          name: 'Pertanian dan Perkebunan'
-          }, {
-          value: 234,
-          name: 'Peternakan'
-          }, {
-          value: 135,
-          name: 'Perikanan'
-          }, {
-          value: 154,
-          name: 'Kesehatan'
-          },{
-          value: 234,
-          name: 'Hukum'
-          },{
-          value: 135,
-          name: 'Manufaktur'
-          },{
-          value: 335,
-          name: 'Konstruksi'
-          }, {
-          value: 310,
-          name: 'Consumer Goods'
-          }, {
-          value: 234,
-          name: 'Energi'
-          }, {
-          value: 135,
-          name: 'Media'
-          }, {
-          value: 154,
-          name: 'Pertambangan'
-          },{
-          value: 234,
-          name: 'Politik'
-          },{
-          value: 135,
-          name: 'IT'
-          },{
-          value: 335,
-          name: 'Startup'
-          }, {
-          value: 310,
-          name: 'Keuangan'
-          }, {
-          value: 234,
-          name: 'Pariwisata'
-          }, {
-          value: 135,
-          name: 'Logistik'
-          }, {
-          value: 154,
-          name: 'Transportasi'
-          },{
-          value: 234,
-          name: 'Pemasaran'
-          },{
-          value: 135,
-          name: 'Properti'
-          },{
-          value: 154,
-          name: 'Telekomunikasi'
-          },{
-          value: 234,
-          name: 'Seni'
-          },{
-          value: 135,
-          name: 'Entertainment'
-          }]
-    	}]
+      $.ajax({
+        url : "<?php echo site_url('Volunteer/getBidang')?>",
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+          echartbidang.setOption({
+            tooltip: {
+              trigger: 'item',
+              formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+              x: 'center',
+              y: 'right',
+              data: ['Pendidikan', 'Pertanian dan Perkebunan', 'Peternakan', 'Perikanan', 'Kesehatan', 'Hukum', 'Manufaktur', 'Konstruksi', 'Consumer Goods', 'Energi', 'Media', 'Pertambangan', 'Politik', 'IT', 'Startup', 'Keuangan', 'Pariwisata', 'Logistik', 'Transportasi', 'Pemasaran', 'Properti', 'Telekomunikasi', 'Seni', 'Entertainment']
+            },
+            toolbox: {
+              show: true,
+              feature: {
+              magicType: {
+                show: true,
+                type: ['pie', 'funnel'],
+                option: {
+                funnel: {
+                  x: '25%',
+                  width: '50%',
+                  funnelAlign: 'left',
+                  max: 1548
+                }
+                }
+              }
+              }
+            },
+            calculable: true,
+            series: [{
+              name: 'Bidang Kegiatan',
+              type: 'pie',
+              radius: '55%',
+              center: ['50%', '48%'],
+              data: [{
+              value: data.pendidikan,
+              name: 'Pendidikan'
+              }, {
+              value: data.pertanian,
+              name: 'Pertanian dan Perkebunan'
+              }, {
+              value: data.peternakan,
+              name: 'Peternakan'
+              }, {
+              value: data.perikanan,
+              name: 'Perikanan'
+              }, {
+              value: data.kesehatan,
+              name: 'Kesehatan'
+              },{
+              value: data.hukum,
+              name: 'Hukum'
+              },{
+              value: data.manufaktur,
+              name: 'Manufaktur'
+              },{
+              value: data.konstruksi,
+              name: 'Konstruksi'
+              }, {
+              value: data.consumer,
+              name: 'Consumer Goods'
+              }, {
+              value: data.energi,
+              name: 'Energi'
+              }, {
+              value: data.media,
+              name: 'Media'
+              }, {
+              value: data.pertambangan,
+              name: 'Pertambangan'
+              },{
+              value: data.politik,
+              name: 'Politik'
+              },{
+              value: data.it,
+              name: 'IT'
+              },{
+              value: data.startup,
+              name: 'Startup'
+              }, {
+              value: data.keuangan,
+              name: 'Keuangan'
+              }, {
+              value: data.pariwisata,
+              name: 'Pariwisata'
+              }, {
+              value: data.logistik,
+              name: 'Logistik'
+              }, {
+              value: data.transportasi,
+              name: 'Transportasi'
+              },{
+              value: data.pemasaran,
+              name: 'Pemasaran'
+              },{
+              value: data.properti,
+              name: 'Properti'
+              },{
+              value: data.telekomunikasi,
+              name: 'Telekomunikasi'
+              },{
+              value: data.seni,
+              name: 'Seni'
+              },{
+              value: data.entertainment,
+              name: 'Entertainment'
+              }]
+        	}]
+          });
+
+          var dataStyle = {
+        	normal: {
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	}
+          };
+
+          var placeHolderStyle = {
+        	normal: {
+        	  color: 'rgba(0,0,0,0)',
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	},
+        	emphasis: {
+        	  color: 'rgba(0,0,0,0)'
+        	}
+          };
+      	}
       });
-
-      var dataStyle = {
-    	normal: {
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	}
-      };
-
-      var placeHolderStyle = {
-    	normal: {
-    	  color: 'rgba(0,0,0,0)',
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	},
-    	emphasis: {
-    	  color: 'rgba(0,0,0,0)'
-    	}
-      };
-
     }
 
     if ($('#echart_pendidikan').length ){
 
       var echartpendidikan = echarts.init(document.getElementById('echart_pendidikan'), theme);
 
-      echartpendidikan.setOption({
-        tooltip: {
-      	  trigger: 'item',
-      	  formatter: "{a} <br/>{b} : {c} ({d}%)"
-      	},
-      	legend: {
-      	  x: 'center',
-      	  y: 'right',
-      	  data: ['SD', 'SMP', 'SMA', 'S1', 'S2', 'S3', 'Tidak menempuh pendidikan']
-      	},
-      	toolbox: {
-      	  show: true,
-      	  feature: {
-      		magicType: {
-      		  show: true,
-      		  type: ['pie', 'funnel'],
-      		  option: {
-      			funnel: {
-      			  x: '25%',
-      			  width: '50%',
-      			  funnelAlign: 'left',
-      			  max: 1548
-      			}
-      		  }
-      		}
-      	  }
-      	},
-      	calculable: true,
-      	series: [{
-          name: 'Pendidikan',
-      	  type: 'pie',
-      	  radius: '55%',
-      	  center: ['50%', '48%'],
-      	  data: [{
-      		value: 335,
-      		name: 'SD'
-      	  }, {
-      		value: 310,
-      		name: 'SMP'
-      	  }, {
-      		value: 234,
-      		name: 'SMA'
-      	  }, {
-      		value: 135,
-      		name: 'S1'
-      	  }, {
-      		value: 154,
-      		name: 'S2'
-          },{
-      		value: 234,
-      		name: 'S3'
-      	  },{
-      		value: 135,
-      		name: 'Tidak menempuh pendidikan'
-      	  }]
-    	}]
+      $.ajax({
+        url : "<?php echo site_url('Volunteer/getPendidikan')?>",
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+          echartpendidikan.setOption({
+            tooltip: {
+                    	  trigger: 'item',
+                    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+                      },
+          	legend: {
+                  	  x: 'center',
+                  	  y: 'right',
+                  	  data: ['SD', 'SMP', 'SMA', 'S1', 'S2', 'S3', 'Tidak menempuh pendidikan']
+                  	},
+          	toolbox: {
+                  	  show: true,
+                  	  feature: {
+                            		magicType: {
+                                      		  show: true,
+                                      		  type: ['pie', 'funnel'],
+                                      		  option: {
+                                                			funnel: {
+                                                          			  x: '25%',
+                                                          			  width: '50%',
+                                                          			  funnelAlign: 'left',
+                                                          			  max: 1548
+                                                          			}
+                    		                              }
+                    		                   }
+          	                   }
+          	         },
+          	calculable: true,
+          	series: [{
+                        name: 'Pendidikan',
+                    	  type: 'pie',
+                    	  radius: '55%',
+                    	  center: ['50%', '48%'],
+                    	  data: [{
+                    		value: data.SD,
+                    		name: 'SD'
+                    	  }, {
+                    		value: data.SMP,
+                    		name: 'SMP'
+                    	  }, {
+                    		value: data.SMA,
+                    		name: 'SMA'
+                    	  }, {
+                    		value: data.S1,
+                    		name: 'S1'
+                    	  }, {
+                    		value: data.S2,
+                    		name: 'S2'
+                        },{
+                    		value: data.S3,
+                    		name: 'S3'
+                    	  },{
+                    		value: data.TIDAK,
+                    		name: 'Tidak menempuh pendidikan'
+                    	  }]
+        	        }]
+          });
+
+          var dataStyle = {
+        	normal: {
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	}
+          };
+
+          var placeHolderStyle = {
+        	normal: {
+        	  color: 'rgba(0,0,0,0)',
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	},
+        	emphasis: {
+        	  color: 'rgba(0,0,0,0)'
+        	}
+          };
+        }
       });
-
-      var dataStyle = {
-    	normal: {
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	}
-      };
-
-      var placeHolderStyle = {
-    	normal: {
-    	  color: 'rgba(0,0,0,0)',
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	},
-    	emphasis: {
-    	  color: 'rgba(0,0,0,0)'
-    	}
-      };
-
     }
 
     if ($('#echart_komunitas').length ){
 
       var echartkomunitas = echarts.init(document.getElementById('echart_komunitas'), theme);
 
-      echartkomunitas.setOption({
-    	tooltip: {
-    	  trigger: 'item',
-    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
-    	},
-    	legend: {
-    	  x: 'center',
-    	  y: 'right',
-    	  data: ['Olahraga', 'Kecantikan', 'Gaya hidup', 'Seni', 'Musik', 'Budaya', 'Budaya popular', 'Film', 'Kuliner', 'Travel', 'Literatur', 'Teknologi', 'Bisnis', 'Kerja sosial/amal']
-    	},
-    	toolbox: {
-    	  show: true,
-    	  feature: {
-    		magicType: {
-    		  show: true,
-    		  type: ['pie', 'funnel'],
-    		  option: {
-    			funnel: {
-    			  x: '25%',
-    			  width: '50%',
-    			  funnelAlign: 'left',
-    			  max: 1548
-    			}
-    		  }
-    		}
-    	  }
-    	},
-    	calculable: true,
-    	series: [{
-        name: 'Minat/Komunitas',
-    	  type: 'pie',
-    	  radius: '55%',
-    	  center: ['50%', '48%'],
-    	  data: [{
-    		value: 335,
-    		name: 'Olahraga'
-    	  }, {
-    		value: 310,
-    		name: 'Kecantikan'
-    	  }, {
-    		value: 234,
-    		name: 'Gaya hidup'
-    	  }, {
-    		value: 135,
-    		name: 'Seni'
-    	  }, {
-    		value: 154,
-    		name: 'Musik'
-        },{
-    		value: 234,
-    		name: 'Budaya'
-    	  },{
-    		value: 135,
-    		name: 'Budaya popular'
-        },{
-        value: 335,
-        name: 'Film'
-        }, {
-        value: 310,
-        name: 'Kuliner'
-        }, {
-        value: 234,
-        name: 'Travel'
-        }, {
-        value: 135,
-        name: 'Literatur'
-        }, {
-        value: 154,
-        name: 'Teknologi'
-        },{
-        value: 234,
-        name: 'Bisnis'
-        },{
-        value: 135,
-        name: 'Kerja sosial/amal'
-        }]
-    	}]
+      $.ajax({
+        url : "<?php echo site_url('Volunteer/getKomunitas')?>",
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+          echartkomunitas.setOption({
+        	tooltip: {
+        	  trigger: 'item',
+        	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+        	},
+        	legend: {
+        	  x: 'center',
+        	  y: 'right',
+        	  data: ['Olahraga', 'Kecantikan', 'Gaya Hidup', 'Seni', 'Musik', 'Budaya', 'Budaya Popular', 'Film', 'Kuliner', 'Travel', 'Literatur', 'Teknologi', 'Bisnis', 'Kerja Sosial/Amal']
+        	},
+        	toolbox: {
+        	  show: true,
+        	  feature: {
+        		magicType: {
+        		  show: true,
+        		  type: ['pie', 'funnel'],
+        		  option: {
+        			funnel: {
+        			  x: '25%',
+        			  width: '50%',
+        			  funnelAlign: 'left',
+        			  max: 1548
+        			}
+        		  }
+        		}
+        	  }
+        	},
+        	calculable: true,
+        	series: [{
+            name: 'Minat/Komunitas',
+        	  type: 'pie',
+        	  radius: '55%',
+        	  center: ['50%', '48%'],
+        	  data: [{
+        		value: data.olahraga,
+        		name: 'Olahraga'
+        	  }, {
+        		value: data.kecantikan,
+        		name: 'Kecantikan'
+        	  }, {
+        		value: data.gaya,
+        		name: 'Gaya Hidup'
+        	  }, {
+        		value: data.seni,
+        		name: 'Seni'
+        	  }, {
+        		value: data.musik,
+        		name: 'Musik'
+            },{
+        		value: data.budaya,
+        		name: 'Budaya'
+        	  },{
+        		value: data.popular,
+        		name: 'Budaya Popular'
+            },{
+            value: data.film,
+            name: 'Film'
+            }, {
+            value: data.kuliner,
+            name: 'Kuliner'
+            }, {
+            value: data.travel,
+            name: 'Travel'
+            }, {
+            value: data.literatur,
+            name: 'Literatur'
+            }, {
+            value: data.teknologi,
+            name: 'Teknologi'
+            },{
+            value: data.bisnis,
+            name: 'Bisnis'
+            },{
+            value: data.amal,
+            name: 'Kerja Sosial/Amal'
+            }]
+        	}]
+          });
+
+          var dataStyle = {
+        	normal: {
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	}
+          };
+
+          var placeHolderStyle = {
+        	normal: {
+        	  color: 'rgba(0,0,0,0)',
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	},
+        	emphasis: {
+        	  color: 'rgba(0,0,0,0)'
+        	}
+          };
+      	}
       });
-
-      var dataStyle = {
-    	normal: {
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	}
-      };
-
-      var placeHolderStyle = {
-    	normal: {
-    	  color: 'rgba(0,0,0,0)',
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	},
-    	emphasis: {
-    	  color: 'rgba(0,0,0,0)'
-    	}
-      };
-
     }
 
     if ($('#echart_kemampuan').length ){
 
       var echartkemampuan = echarts.init(document.getElementById('echart_kemampuan'), theme);
 
-      echartkemampuan.setOption({
-    	tooltip: {
-    	  trigger: 'item',
-    	  formatter: "{a} <br/>{b} : {c} ({d}%)"
-    	},
-    	legend: {
-    	  x: 'center',
-    	  y: 'right',
-    	  data: ['Menulis', 'Programming', 'Fotografi', 'Video', 'Desain Grafis', 'Public Speaking', 'Event Organizer', 'Musisi', 'Engineering', 'Logistik / distribusi', 'Pemasaran', 'Lainnya']
-    	},
-    	toolbox: {
-    	  show: true,
-    	  feature: {
-    		magicType: {
-    		  show: true,
-    		  type: ['pie', 'funnel'],
-    		  option: {
-    			funnel: {
-    			  x: '25%',
-    			  width: '50%',
-    			  funnelAlign: 'left',
-    			  max: 1548
-    			}
-    		  }
-    		}
-    	  }
-    	},
-    	calculable: true,
-    	series: [{
-    	  name: 'Kemampuan Khusus',
-    	  type: 'pie',
-    	  radius: '55%',
-    	  center: ['50%', '48%'],
-    	  data: [{
-    		value: 335,
-    		name: 'Menulis'
-    	  }, {
-    		value: 310,
-    		name: 'Programming'
-    	  }, {
-    		value: 234,
-    		name: 'Fotografi'
-    	  }, {
-    		value: 135,
-    		name: 'Video'
-    	  }, {
-    		value: 154,
-    		name: 'Desain Grafis'
-        },{
-    		value: 234,
-    		name: 'Public Speaking'
-    	  },{
-    		value: 135,
-    		name: 'Event Organizer'
-        },{
-        value: 234,
-        name: 'Musisi'
-        }, {
-        value: 135,
-        name: 'Engineering'
-        }, {
-        value: 154,
-        name: 'Logistik / distribusi'
-        },{
-        value: 234,
-        name: 'Pemasaran'
-        },{
-        value: 135,
-        name: 'Lainnya'
-        }]
-    	}]
+      $.ajax({
+        url : "<?php echo site_url('Volunteer/getKemampuan')?>",
+        type: "GET",
+        dataType: "JSON",
+        success: function(data)
+        {
+          echartkemampuan.setOption({
+        	tooltip: {
+        	  trigger: 'item',
+        	  formatter: "{a} <br/>{b} : {c} ({d}%)"
+        	},
+        	legend: {
+        	  x: 'center',
+        	  y: 'right',
+        	  data: ['Menulis', 'Programming', 'Fotografi', 'Video', 'Desain Grafis', 'Public Speaking', 'Event Organizer', 'Musisi', 'Engineering', 'Logistik / Distribusi', 'Pemasaran', 'Lainnya']
+        	},
+        	toolbox: {
+        	  show: true,
+        	  feature: {
+        		magicType: {
+        		  show: true,
+        		  type: ['pie', 'funnel'],
+        		  option: {
+        			funnel: {
+        			  x: '25%',
+        			  width: '50%',
+        			  funnelAlign: 'left',
+        			  max: 1548
+        			}
+        		  }
+        		}
+        	  }
+        	},
+        	calculable: true,
+        	series: [{
+        	  name: 'Kemampuan Khusus',
+        	  type: 'pie',
+        	  radius: '55%',
+        	  center: ['50%', '48%'],
+        	  data: [{
+        		value: data.menulis,
+        		name: 'Menulis'
+        	  }, {
+        		value: data.programming,
+        		name: 'Programming'
+        	  }, {
+        		value: data.fotografi,
+        		name: 'Fotografi'
+        	  }, {
+        		value: data.video,
+        		name: 'Video'
+        	  }, {
+        		value: data.desain,
+        		name: 'Desain Grafis'
+            },{
+        		value: data.public,
+        		name: 'Public Speaking'
+        	  },{
+        		value: data.event,
+        		name: 'Event Organizer'
+            },{
+            value: data.musisi,
+            name: 'Musisi'
+            }, {
+            value: data.engineering,
+            name: 'Engineering'
+            }, {
+            value: data.logistik,
+            name: 'Logistik / Distribusi'
+            },{
+            value: data.pemasaran,
+            name: 'Pemasaran'
+            },{
+            value: data.lainnya,
+            name: 'Lainnya'
+            }]
+        	}]
+          });
+
+          var dataStyle = {
+        	normal: {
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	}
+          };
+
+          var placeHolderStyle = {
+        	normal: {
+        	  color: 'rgba(0,0,0,0)',
+        	  label: {
+        		show: false
+        	  },
+        	  labelLine: {
+        		show: false
+        	  }
+        	},
+        	emphasis: {
+        	  color: 'rgba(0,0,0,0)'
+        	}
+          };
+      	}
       });
-
-      var dataStyle = {
-    	normal: {
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	}
-      };
-
-      var placeHolderStyle = {
-    	normal: {
-    	  color: 'rgba(0,0,0,0)',
-    	  label: {
-    		show: false
-    	  },
-    	  labelLine: {
-    		show: false
-    	  }
-    	},
-    	emphasis: {
-    	  color: 'rgba(0,0,0,0)'
-    	}
-      };
-
     }
 </script>
 </html>

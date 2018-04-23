@@ -62,98 +62,104 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <form class="form-horizontal form-label-left">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Lengkap</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $name; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Tempat & Tanggal Lahir</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-2 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $ttl; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-2 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $gender; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat KTP</label>
                         <div class="col-md-6 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="3" disabled></textarea>
+                          <textarea class="form-control" rows="3" disabled><?= $address; ?></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat Domisili</label>
                         <div class="col-md-6 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="3" disabled></textarea>
+                          <textarea class="form-control" rows="3" disabled><?= $domisili; ?></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendidikan Terakhir</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $education; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Kegiatan</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $job; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Bidang Kegiatan</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $activity; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Detail Kegiatan</label>
                         <div class="col-md-6 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="3" disabled></textarea>
+                          <textarea class="form-control" rows="3" disabled><?= $act_detail; ?></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Instansi Tempat Bekerja</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
+                        <div class="col-md-4 col-sm-9 col-xs-12">
                           <input type="text" class="form-control" value="" disabled>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Sosial Media</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Twitter</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $twitter; ?>" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Instagram</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $instagram; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Blog/Website</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $blog; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Kemampuan Khusus</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $skill; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Kelompok/Komunitas</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $community; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Kelompok/Komunitas</label>
-                        <div class="col-md-6 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $comm_name; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Harapan/Vision</label>
                         <div class="col-md-6 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="3" disabled></textarea>
+                          <textarea class="form-control" rows="3" disabled><?= $hope; ?></textarea>
                         </div>
                       </div>
                       <div class="form-group">
