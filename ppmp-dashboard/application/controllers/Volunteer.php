@@ -16,6 +16,7 @@ class Volunteer extends CI_Controller{
     $data['instagram'] = $this->M_crud->get_find_query("count(id) as cnt from bot_reg where instagram <> ''")->cnt;
     $data['twitter'] = $this->M_crud->get_find_query("count(id) as cnt from bot_reg where twitter <> ''")->cnt;
     $data['telegram'] = 0;
+    $data['location'] = $this->M_crud->custom_query("SELECT domicile, count(*) AS cnt FROM bot_reg WHERE domicile <> '' GROUP BY domicile ORDER BY count(*) DESC LIMIT 5");
 
     $data['lelaki1'] = $this->M_crud->get_find_query("count(id) as cnt FROM bot_reg WHERE (YEAR(CURDATE()) - YEAR(ttl)) > 17 AND (YEAR(CURDATE()) - YEAR(ttl)) < 25 AND gender = 'L'")->cnt;
     $data['lelaki2'] = $this->M_crud->get_find_query("count(id) as cnt FROM bot_reg WHERE (YEAR(CURDATE()) - YEAR(ttl)) > 24 AND (YEAR(CURDATE()) - YEAR(ttl)) < 35 AND gender = 'L'")->cnt;
@@ -46,7 +47,8 @@ class Volunteer extends CI_Controller{
         $data['gender'] = "Perempuan";
       }
 			$data['address']			 = $result->address;
-		  $data['domisili']			 = $this->_getAddress($result->latitude,$result->longitude);
+		  //$data['domisili']			 = $this->_getAddress($result->latitude,$result->longitude);
+      $data['domisili']			 = $result->domicile;
 		  $data['education']		 = $result->education;
 		  $data['job']			     = $result->job;
 		  $data['activity']			 = $result->activity;
@@ -92,7 +94,7 @@ class Volunteer extends CI_Controller{
       else if(strtoupper($res->education) == "S3"){
         $data['S3']    = $res->cnt;
       }
-      else{
+      else if(strtoupper($res->education) == "TIDAK MENEMPUH PENDIDIKAN"){
         $data['TIDAK'] = $res->cnt;
       }
 		}
@@ -264,7 +266,7 @@ class Volunteer extends CI_Controller{
       else if(strtolower($res->job) == "mengurus rumah tangga"){
         $data['irt']    = $res->cnt;
       }
-      else {
+      else if(strtolower($res->job) == "belum/tidak bekerja"){
         $data['tidak']    = $res->cnt;
       }
 		}

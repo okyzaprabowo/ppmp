@@ -73,76 +73,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <div class="widget_summary">
-                    <div class="w_left" style="width: 50%;">
-                      <span>Solo, Jateng</span>
-                    </div>
-                    <div class="w_center" style="width: 50%;">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                          <span class="sr-only">60% Complete</span>
+                  <?php
+                    if(!empty($location)){
+                      $loc = '';
+                      $cnt = 0;
+                      foreach($location as $data){
+                        $string_array = explode(",",$data->domicile);
+                        $loc = $string_array[0].', '.$string_array[2];
+                  ?>
+                    <div class="widget_summary">
+                      <div class="w_left" style="width: 50%;">
+                        <span><?= $loc ?></span>
+                      </div>
+                      <div class="w_center" style="width: 50%;">
+                        <div class="progress">
+                          <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $cnt ?>"
+                                      aria-valuemin="0" aria-valuemax="100" style="width: <?= $cnt ?>%;">
+                            <span class="sr-only"><?= $cnt ?>% Complete</span>
+                          </div>
                         </div>
                       </div>
+                      <div class="clearfix"></div>
                     </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left" style="width: 50%;">
-                      <span>Kuningan, Jabar</span>
-                    </div>
-                    <div class="w_center" style="width: 50%;">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="40"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                          <span class="sr-only">40% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left" style="width: 50%;">
-                      <span>Jakarta, DKI</span>
-                    </div>
-                    <div class="w_center" style="width: 50%;">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="70"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                          <span class="sr-only">70% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left" style="width: 50%;">
-                      <span>Palembang, Sumsel</span>
-                    </div>
-                    <div class="w_center" style="width: 50%;">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="20"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left" style="width: 50%;">
-                      <span>Surabaya, Jatim</span>
-                    </div>
-                    <div class="w_center" style="width: 50%;">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="50"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                          <span class="sr-only">50% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
+                  <?php
+                      }
+                    }
+                  ?>
                 </div>
               </div>
             </div>
@@ -404,79 +360,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <?php $this->load->view('templates/v_footer'); ?>
 </body>
 <script type="text/javascript">
-var numberWithCommas = function(x) {
-                          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                      };
+    var numberWithCommas = function(x) {
+                              return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                          };
 
-var dataPack1 = [$('#vallk1').val(),$('#vallk2').val(),$('#vallk3').val(),$('#vallk4').val(),$('#vallk5').val(),$('#vallk6').val()];
-var dataPack2 = [$('#valpr1').val(),$('#valpr2').val(),$('#valpr3').val(),$('#valpr4').val(),$('#valpr5').val(),$('#valpr6').val()];
-console.log(dataPack1);
-var dates = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
-var bar_ctx = document.getElementById('agechart');
+    var dataPack1 = [$('#vallk1').val(),$('#vallk2').val(),$('#vallk3').val(),$('#vallk4').val(),$('#vallk5').val(),$('#vallk6').val()];
+    var dataPack2 = [$('#valpr1').val(),$('#valpr2').val(),$('#valpr3').val(),$('#valpr4').val(),$('#valpr5').val(),$('#valpr6').val()];
+    console.log(dataPack1);
+    var dates = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
+    var bar_ctx = document.getElementById('agechart');
 
-var bar_chart = new Chart(bar_ctx, {
-    type: 'bar',
-    data: {
-        labels: dates,
-        datasets: [
-        {
-            label: 'Male',
-            data: dataPack1,
-            backgroundColor: "rgba(55, 160, 225, 0.7)",
-            hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
-            hoverBorderWidth: 2,
-            hoverBorderColor: 'lightgrey'
-        },
-        {
-            label: 'Female',
-            data: dataPack2,
-            backgroundColor: "rgba(225, 58, 55, 0.7)",
-            hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
-            hoverBorderWidth: 2,
-            hoverBorderColor: 'lightgrey'
-        },
-        ]
-    },
-    options: {
-        animation: {
-          duration: 10,
-        },
-        tooltips: {
-          mode: 'label',
-          callbacks: {
-          label: function(tooltipItem, data) {
-            return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
-          }
-          }
-         },
-        scales: {
-          xAxes: [{
-            stacked: true,
-            gridLines: { display: false },
-            }],
-          yAxes: [{
-            stacked: true,
-            ticks: {
-              callback: function(value) { return numberWithCommas(value); },
+    var bar_chart = new Chart(bar_ctx, {
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: [
+            {
+                label: 'Male',
+                data: dataPack1,
+                backgroundColor: "rgba(55, 160, 225, 0.7)",
+                hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
+                hoverBorderWidth: 2,
+                hoverBorderColor: 'lightgrey'
             },
-            }],
-        }, // scales
-        legend: {display: true}
-    } // options
-  }
-);
-
-
-    // $.ajax({
-    //     url : "</?php echo site_url('Volunteer/getUmur')?>",
-    //     type: "GET",
-    //     dataType: "JSON",
-    //     success: function(data)
-    //     {
-    //       var dataPack1 = [data.laki1, data.laki2, data.laki3, data.laki4, data.laki5, data.laki6];
-    //       var dataPack2 = [data.perempuan1, data.perempuan2, data.perempuan3, data.perempuan4, data.perempuan5, data.perempuan6];
-    //   	}
-    //   });
+            {
+                label: 'Female',
+                data: dataPack2,
+                backgroundColor: "rgba(225, 58, 55, 0.7)",
+                hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",
+                hoverBorderWidth: 2,
+                hoverBorderColor: 'lightgrey'
+            },
+            ]
+        },
+        options: {
+            animation: {
+              duration: 10,
+            },
+            tooltips: {
+              mode: 'label',
+              callbacks: {
+              label: function(tooltipItem, data) {
+                return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
+              }
+              }
+             },
+            scales: {
+              xAxes: [{
+                stacked: true,
+                gridLines: { display: false },
+                }],
+              yAxes: [{
+                stacked: true,
+                ticks: {
+                  callback: function(value) { return numberWithCommas(value); },
+                },
+                }],
+            }, // scales
+            legend: {display: true}
+        } // options
+      }
+    );
 
     var theme = {
         				  color: [
