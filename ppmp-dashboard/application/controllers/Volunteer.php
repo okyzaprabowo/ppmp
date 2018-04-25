@@ -49,6 +49,7 @@ class Volunteer extends CI_Controller{
 			$data['address']			 = $result->address;
 		  //$data['domisili']			 = $this->_getAddress($result->latitude,$result->longitude);
       $data['domisili']			 = $result->domicile;
+      $data['instansi']			 = $result->instance;
 		  $data['education']		 = $result->education;
 		  $data['job']			     = $result->job;
 		  $data['activity']			 = $result->activity;

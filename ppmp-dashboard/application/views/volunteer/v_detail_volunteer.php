@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Instansi Tempat Bekerja</label>
                         <div class="col-md-4 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" value="" disabled>
+                          <input type="text" class="form-control" value="<?= $instansi; ?>" disabled>
                         </div>
                       </div>
                       <div class="form-group">
