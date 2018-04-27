@@ -28,5 +28,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css');?>">
 <link rel="stylesheet" href="<?php echo base_url('assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css');?>">
+<!-- Multiple Select -->
+<link rel="stylesheet" href="<?php echo base_url('assets/vendors/bootstrap-multi-select/bootstrap-multiselect.css');?>">
 <!-- Custom Theme Style -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.min.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/mycss.css');?>">

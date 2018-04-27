@@ -61,16 +61,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="x_content">
                   <div class="button_top">
-                    <a href="<?php echo base_url('Mission/add_mission'); ?>" class="buttonPrevious btn btn-primary"><i class="fa fa-plus"></i> Tambah Mision</a>
+                    <a href="<?php echo base_url('Mission/add_mission'); ?>" class="buttonPrevious btn btn-primary"><i class="fa fa-plus"></i> Add Mision</a>
                   </div>
                   <br/>
                   <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th style="text-align: center; width: 5%;">No.</th>
-                          <th style="text-align: center;">Nama Relawan</th>
-                          <th style="text-align: center;">Tanggal</th>
                           <th style="text-align: center;">Mision</th>
+                          <th style="text-align: center;">Tanggal</th>
                           <th style="text-align: center;">Status</th>
                           <th style="text-align: center; width: 5%;">Detail</th>
                         </tr>

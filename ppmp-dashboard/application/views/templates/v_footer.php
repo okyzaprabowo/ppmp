@@ -58,5 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- ECharts -->
 <script src="<?php echo base_url('assets/vendors/echarts/dist/echarts.min.js');?>"></script>
 <script src="<?php echo base_url('assets/vendors/echarts/map/js/world.js');?>"></script>
+<!-- Multiple Select -->
+<script src="<?php echo base_url('assets/vendors/bootstrap-multi-select/bootstrap-multiselect.js');?>"></script>
 <!-- Custom Theme Scripts -->
 <script src="<?php echo base_url('assets/js/custom.min.js');?>"></script>

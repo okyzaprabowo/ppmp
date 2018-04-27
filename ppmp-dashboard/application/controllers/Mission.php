@@ -15,7 +15,8 @@ class Mission extends CI_Controller{
 
   public function add_mission()
   {
-    $this->load->view('mission/v_mission_add');
+    $data['arr_domisili'] = $this->M_crud->custom_query("SELECT domicile FROM bot_reg WHERE domicile <> '' GROUP BY domicile");
+    $this->load->view('mission/v_mission_add', $data);
   }
 
 }

@@ -379,21 +379,25 @@ class Volunteer extends CI_Controller{
     echo json_encode($data);
   }
 
-  function _getAddress($latitude,$longitude)
+  function getAddress()
   {
-    if(!empty($latitude) && !empty($longitude)){
+    $address = "Tidak Ketemu";
+    //if(!empty($latitude) && !empty($longitude)){
+        $latitude = -6.945427018671837;
+        $longitude = 107.64874756336212;
         $geocodeFromLatLong = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($latitude).','.trim($longitude).'&sensor=false');
         $output = json_decode($geocodeFromLatLong);
         $status = $output->status;
         $address = ($status=="OK")?$output->results[1]->formatted_address:'';
-        if(!empty($address)){
-            return $address;
-        }else{
-            return false;
-        }
-    }else{
-        return false;
-    }
+        //if(!empty($address)){
+        //    return $address;
+        //}else{
+        //    return false;
+        //}
+    //}else{
+    //    return false;
+    //}
+    print_r($address);
   }
 
 }
