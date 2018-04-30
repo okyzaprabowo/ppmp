@@ -5,22 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link  rel="shortcut icon" type="image/x-icon" href="<?php echo config_item('owner_icon'); ?>" />
-  <title><?php echo config_item('web_title'); ?></title>
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendors/bootstrap/dist/css/bootstrap.min.css');?>">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendors/font-awesome/css/font-awesome.min.css');?>">
-  <!-- NProgress -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendors/nprogress/nprogress.css');?>">
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/vendors/animate.css/animate.min.css');?>">
-  <!-- Custom Theme Style -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.min.css');?>">
+  <?php $this->load->view('templates/v_header'); ?>
 </head>
 <body class="login">
   <div>
@@ -29,17 +14,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="login_wrapper">
       <div class="animate form login_form">
         <section class="login_content">
-          <form>
-              <h1>Login</h1>
+          <?php
+            if(!empty($this->session->flashdata('notif'))){
+              echo $this->session->flashdata('notif');
+            }
+          ?>
+          <form action="<?php site_url('Login');?>" method="post">
+              <h1>PPMP</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" placeholder="Nama Pengguna" required="" name="username" id="username"/>
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Kata Kunci" required="" name="password" id="password"/>
               </div>
               <div>
-                <a class="btn btn-default submit" href="#">Log in</a>
-                <a class="reset_pass" href="#">Forgot password?</a>
+                <button type="submit" class="btn btn-default submit">Masuk</button>
+                <!-- <a class="reset_pass" href="#">Forgot password?</a> -->
               </div>
 
               <div class="clearfix"></div>
@@ -58,5 +48,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
   </div>
+  <?php $this->load->view('templates/v_footer'); ?>
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#notif').delay(10000).fadeOut("slow");
+});
+</script>
 </html>

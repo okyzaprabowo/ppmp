@@ -10,6 +10,8 @@ class Activity extends CI_Controller{
 
   public function index()
   {
+    $this->M_base->_make_sure_is_login();
+
     $this->load->view('activity/v_activity');
   }
 

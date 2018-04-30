@@ -20,11 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo base_url('assets/images/avatar-1.jpg');?>" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url('assets/images/').$this->session->userdata['ppmp']['ap_image'];?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>User</h2>
+                <h2><?php echo $this->session->userdata['ppmp']['ap_name'];?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->

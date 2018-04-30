@@ -10,14 +10,46 @@ class M_crud extends CI_Model {
 
 	function _update($table, $id, $where, $data)
 	{
-		$this->db->where($id, $where);
-		return $this->db->update($table, $data);
+		$this->db->where($where, $id);
+		$this->db->update($table, $data);
 	}
 
 	function _delete($table, $id, $where)
 	{
 		$this->db->where($id, $where);
 		$this->db->delete($table);
+	}
+
+  function _find_data($table, $where, $param)
+  {
+  	$this->db->select('*')
+  	->where($where,$param)
+  	->from($table);
+
+  	$get = $this->db->get();
+
+  	if($get->num_rows() > 0)
+  	{
+  		return $get->result();
+  	}
+  	else
+  	{
+  		return 0;
+  	}
+  }
+
+  function _get_by_id($table, $where1, $param1, $where2 = NULL, $param2 = NULL)
+	{
+		$this->db->from($table);
+		$this->db->where($where1, $param1);
+		if(!is_null($where2))
+		{
+			$this->db->where($where2, $param2);
+		}
+
+		$query = $this->db->get();
+
+		return $query->row();
 	}
 
   function _get_data($select, $table, $where = NULL, $param = NULL, $orderby = NULL, $sortby = NULL)
@@ -84,6 +116,38 @@ class M_crud extends CI_Model {
   function get_find_query($select)
 	{
 		$this->db->select($select);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+  function check_table($table, $where, $name, $where2 = NULL, $name2 = NULL, $where3 = NULL, $name3 = NULL,
+			$where4 = NULL, $name4 = NULL, $where5 = NULL, $name5 = NULL, $where6 = NULL, $name6 = NULL,
+			$where7 = NULL, $name7 = NULL, $where8 = NULL, $name8 = NULL)
+	{
+		$this->db->from($table);
+		$this->db->where($where, strtoupper($name));
+		if (!is_null($name2)){
+			$this->db->where($where2, strtoupper($name2));
+		}
+		if (!is_null($name3)){
+			$this->db->where($where3, strtoupper($name3));
+		}
+		if (!is_null($name4)){
+			$this->db->where($where4, strtoupper($name4));
+		}
+		if (!is_null($name5)){
+			$this->db->where($where5, strtoupper($name5));
+		}
+		if (!is_null($name6)){
+			$this->db->where($where6, strtoupper($name6));
+		}
+		if (!is_null($name7)){
+			$this->db->where($where7, strtoupper($name7));
+		}
+		if (!is_null($name8)){
+			$this->db->where($where8, strtoupper($name8));
+		}
+
 		$query = $this->db->get();
 		return $query->row();
 	}

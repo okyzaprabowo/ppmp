@@ -10,6 +10,8 @@ class Dashboard extends CI_Controller{
 
   public function index()
   {
+    $this->M_base->_make_sure_is_login();
+    
     $this->load->library('googlemaps');
     $config['center'] = "-2.6000285, 118.015776";
 		$config['zoom'] = 5;

@@ -10,6 +10,8 @@ class Mission extends CI_Controller{
 
   public function index()
   {
+    $this->M_base->_make_sure_is_login();
+    
     $this->load->view('mission/v_mission');
   }
 

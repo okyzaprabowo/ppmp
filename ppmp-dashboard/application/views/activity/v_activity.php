@@ -19,11 +19,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo base_url('assets/images/avatar-1.jpg');?>" alt="..." class="img-circle profile_img">
+                <img src="<?php echo base_url('assets/images/').$this->session->userdata['ppmp']['ap_image'];?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>User</h2>
+                <h2><?php echo $this->session->userdata['ppmp']['ap_name'];?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="x_panel tile">
                 <div class="dashboard_graph">
                   <div class="row x_title">
-                     <h2>Activity</h2>
+                     <h2>Aktivitas</h2>
                      <ul class="nav navbar-right panel_toolbox">
                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                      </ul>
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <th>Detail</th>
                           </tr>
                         </thead>
-                        <tbody>                         
+                        <tbody>
                         </tbody>
                       </table>
                   </div>

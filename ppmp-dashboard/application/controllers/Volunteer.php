@@ -10,6 +10,8 @@ class Volunteer extends CI_Controller{
 
   public function index()
   {
+    $this->M_base->_make_sure_is_login();
+
     $data['volunteer'] = $this->M_crud->_get_data('*', 'bot_reg');
     $data['whatsapp'] = 0;
     $data['line'] = $this->M_crud->get_find_query("count(id) as cnt from bot_reg")->cnt;
@@ -37,6 +39,8 @@ class Volunteer extends CI_Controller{
 
   public function detail_volunteer($id)
   {
+    $this->M_base->_make_sure_is_login();
+    
     $query = $this->M_crud->_get_data('*', 'bot_reg','user_id',$id);
 		foreach ($query as $result){
 			$data['name']			     = $result->name;
