@@ -84,6 +84,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                          if($reports > 0)
+                          {
+                            $no = 1;
+                            foreach($reports as $data)
+                            {
+                        ?>
+                            <tr>
+                              <td><?= $no ?></td>
+                              <td><?= date('d F Y',strtotime($data->created_at)) ?></td>
+                              <td><?= $data->displayName ?></td>
+                              <td><?= $data->item ?></td>
+                              <td><a class="btn btn-warning btn-xs" href="<?php echo site_url('Reports/detail_report').'/'.$data->id;?>">
+    										           <i class="fa fa-binoculars" title="Detail"></i></a></td>
+                            </tr>
+                        <?php
+                            }
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -98,18 +117,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php $this->load->view('templates/v_copyright'); ?>
         <!-- footer content -->
       </div>
+      <input type="hidden" id="valIntoleransi" value="<?= $intoleransi ?>" />
+      <input type="hidden" id="valHoax" value="<?= $hoax ?>" />
+      <input type="hidden" id="valKecurangan" value="<?= $kecurangan ?>" />
+      <input type="hidden" id="valKampanye" value="<?= $kampanye ?>" />
+      <input type="hidden" id="valLainnya" value="<?= $lainnya ?>" />
     <?php $this->load->view('templates/v_footer'); ?>
   </body>
   <script type="text/javascript">
+  $(document).ready(function(){
+
+  });
+
+      var valIntoleransi = $('#valIntoleransi').val();
+      var valHoax = $('#valHoax').val();
+      var valKecurangan = $('#valKecurangan').val();
+      var valKampanye = $('#valKampanye').val();
+      var valLainnya = $('#valLainnya').val();
+
       var numberWithCommas = function(x) {
                                 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                             };
-
-      var dataIntoleransi = [51, 30, 40, 28, 92, 50, 45, 20, 35, 45, 55, 35];
-      var dataHoax = [41, 56, 25, 48, 72, 34, 12, 51, 30, 40, 28, 92];
-      var dataKecurangan = [51, 30, 40, 28, 92, 50, 45, 20, 35, 45, 55, 35];
-      var dataKampanye = [41, 56, 25, 48, 72, 34, 12, 51, 30, 40, 28, 92];
-      var dataLain = [51, 30, 40, 28, 92, 50, 45, 20, 35, 45, 55, 35];
+      var dataIntoleransi = valIntoleransi.split(',').map(x => parseFloat(x, 10));
+      var dataHoax = valHoax.split(',').map(x => parseFloat(x, 10));
+      var dataKecurangan = valKecurangan.split(',').map(x => parseFloat(x, 10));
+      var dataKampanye = valKampanye.split(',').map(x => parseFloat(x, 10));
+      var dataLain = valLainnya.split(',').map(x => parseFloat(x, 10));
       var months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
       var bar_ctx = document.getElementById('reportchart');

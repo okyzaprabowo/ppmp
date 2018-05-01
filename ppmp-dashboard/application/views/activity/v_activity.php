@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <tr>
                             <th>Nama Lengkap</th>
                             <th>Tanggal</th>
-                            <th>Activity</th>
+                            <th>Aktivitas</th>
                             <th>Detail</th>
                           </tr>
                         </thead>

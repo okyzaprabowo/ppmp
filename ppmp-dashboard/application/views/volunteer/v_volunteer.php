@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="x_panel tile">
               <div class="dashboard_graph">
                 <div class="row x_title">
-                   <h2>Age & Gender Of Volunteer</h2>
+                   <h2>Usia dan Jenis Kelamin Relawan</h2>
                    <ul class="nav navbar-right panel_toolbox">
                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                    </ul>
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
                 <div class="x_title">
-                   <h2>Location</h2>
+                   <h2>Lokasi</h2>
                    <ul class="nav navbar-right panel_toolbox">
                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                    </ul>
@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       $cnt = 0;
                       foreach($location as $data){
                         $string_array = explode(",",$data->domicile);
-                        $loc = $string_array[0].', '.$string_array[2];
+                        $loc = $string_array[3].', '.preg_replace('/\d+/u', '', $string_array[4]);
                   ?>
                     <div class="widget_summary">
                       <div class="w_left" style="width: 50%;">
@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="x_panel tile fixed_height_320">
               <div class="dashboard_graph">
                 <div class="x_title">
-                   <h2>Channel</h2>
+                   <h2>Kanal</h2>
                    <ul class="nav navbar-right panel_toolbox">
                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                    </ul>
@@ -285,7 +285,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                   <h2>Volunteer Database</h2>
+                   <h2>Database Relawan</h2>
                    <ul class="nav navbar-right panel_toolbox">
                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                    </ul>
@@ -366,7 +366,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     var dataPack1 = [$('#vallk1').val(),$('#vallk2').val(),$('#vallk3').val(),$('#vallk4').val(),$('#vallk5').val(),$('#vallk6').val()];
     var dataPack2 = [$('#valpr1').val(),$('#valpr2').val(),$('#valpr3').val(),$('#valpr4').val(),$('#valpr5').val(),$('#valpr6').val()];
-    console.log(dataPack1);
     var dates = ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"];
     var bar_ctx = document.getElementById('agechart');
 
@@ -376,7 +375,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             labels: dates,
             datasets: [
             {
-                label: 'Male',
+                label: 'Laki-Laki',
                 data: dataPack1,
                 backgroundColor: "rgba(55, 160, 225, 0.7)",
                 hoverBackgroundColor: "rgba(55, 160, 225, 0.7)",
@@ -384,7 +383,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 hoverBorderColor: 'lightgrey'
             },
             {
-                label: 'Female',
+                label: 'Perempuan',
                 data: dataPack2,
                 backgroundColor: "rgba(225, 58, 55, 0.7)",
                 hoverBackgroundColor: "rgba(225, 58, 55, 0.7)",

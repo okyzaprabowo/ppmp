@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Content Filter</h2>
+                    <h2>Filter Konten</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </ul>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Date Range</label>
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Tanggal</label>
                         <div class="col-md-4">
                           <div id="reportrange_right" class="pull-left" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                             <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Content Result</h2>
+                    <h2>Hasil Konten</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </ul>

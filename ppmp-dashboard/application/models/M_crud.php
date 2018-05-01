@@ -52,12 +52,15 @@ class M_crud extends CI_Model {
 		return $query->row();
 	}
 
-  function _get_data($select, $table, $where = NULL, $param = NULL, $orderby = NULL, $sortby = NULL)
+  function _get_data($select, $table, $where1 = NULL, $param1 = NULL, $where2 = NULL, $param2 = NULL, $orderby = NULL, $sortby = NULL)
 	{
 		$this->db->select($select);
 		$this->db->from($table);
-    if(!is_null($where)){
-			$this->db->where($where, $param);
+    if(!is_null($where1)){
+			$this->db->where($where1, $param1);
+		}
+    if(!is_null($where2)){
+			$this->db->where($where2, $param2);
 		}
     if(!is_null($orderby)){
 			$this->db->order_by($orderby, $sortby);
@@ -75,7 +78,7 @@ class M_crud extends CI_Model {
     }
 	}
 
-  function _get_data_join($select, $from, $join1 = NULL, $whereJoin1 = NULL, $join2 = NULL, $whereJoin2 = NULL, $where1 = NULL, $param1 = NULL, $where2 = NULL, $param2 = NULL, $order = NULL)
+  function _get_data_join($select, $from, $join1 = NULL, $whereJoin1 = NULL, $join2 = NULL, $whereJoin2 = NULL, $where1 = NULL, $param1 = NULL, $where2 = NULL, $param2 = NULL, $orderby = NULL, $sortby = NULL)
 	{
 		$this->db->select($select);
 		$this->db->from($from);
@@ -91,8 +94,8 @@ class M_crud extends CI_Model {
 		if(!is_null($where2)){
 			$this->db->where($where2, $param2);
 		}
-		if (!is_null($order)){
-			$this->db->order_by($order, 'asc');
+		if (!is_null($orderby)){
+			$this->db->order_by($orderby, $sortby);
 		}
 
     $get = $this->db->get();
