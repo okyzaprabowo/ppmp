@@ -55,13 +55,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead>
                           <tr>
-                            <th>Nama Lengkap</th>
-                            <th>Tanggal</th>
-                            <th>Aktivitas</th>
-                            <th>Detail</th>
+                            <th style="text-align: center; width: 5%;">No.</th>
+                            <th style="text-align: center;">Nama Lengkap</th>
+                            <th style="text-align: center;">Tanggal</th>
+                            <th style="text-align: center;">Aktivitas</th>
                           </tr>
                         </thead>
                         <tbody>
+                          <?php
+                            if($activity > 0)
+                            {
+                              $no = 1;
+                              foreach($activity as $data)
+                              {
+                          ?>
+                             <tr>
+                                <td><?= $no ?></td>
+                                <td><?= $data->displayName ?></td>
+                                <td><?= date('d F Y',strtotime($data->created_at)) ?></td>
+                                <td><?= $data->description ?></td>
+                             </tr>
+                          <?php
+                              }
+                            }
+                          ?>
                         </tbody>
                       </table>
                   </div>
