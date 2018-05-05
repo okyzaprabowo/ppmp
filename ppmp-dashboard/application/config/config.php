@@ -38,6 +38,10 @@ $config['owner_name']		= "PPMP";
 $config['owner_image']	= $config['base_url'].'logo/KMB_Logo.png';
 $config['owner_icon']		= $config['base_url'].'logo/KMB.ico';
 
+// line channel
+$config['channelAccessToken'] = '<E0LbeRZ+yC4rAzvowxITe+MJ2jAr/ePSTc0rWgiX937JTxoqGFYYv1Pc2D5I3PTS4J3J4ZyEm2oYNBgKZ/Yva7YIsKhkIkXhf5IhnWWykbm9ExNQ7GPQ/KCOJon/tWKlOGkfmvV+Sms/AyaAxrH/0gdB04t89/1O/w1cDnyilFU=>';
+$config['channelSecret'] = '7d1182707b3f3cf0d7db5172bee8295c';
+
 //Setingan default reset password
 $config['password_reset'] = '12345';
 
@@ -155,7 +159,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

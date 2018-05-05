@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">Photo</label>
                         <div class="col-md-4 col-sm-6 col-xs-12">
                           <div class="input-group">
-    												<img width="150px" height="150px" id="image-preview" alt="image preview" src="<?php echo base_url().'assets/img-report/'.$image; ?>"/>
+    												<img width="150px" height="150px" id="image-preview" alt="image preview" src="data:image/jpeg;base64,<?php echo $imagecontent; ?>"/>
     											</div>
                         </div>
                       </div>

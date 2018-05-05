@@ -135,6 +135,7 @@ class Reports extends CI_Controller{
   public function detail_report($id)
   {
     $this->M_base->_make_sure_is_login();
+    include_once './vendor/autoload.php';
 
     $query = $this->M_crud->_get_data_join('a.id, a.created_at, a.comment, a.image, b.displayName, c.item', 'bot_user_item as a', 'bot_user as b', 'a.user_id=b.userId', 'bot_item as c', 'a.item_id=c.id', 'a.id', $id);
 
@@ -143,7 +144,16 @@ class Reports extends CI_Controller{
       $data['nama']			     = $result->displayName;
       $data['item']			     = $result->item;
       $data['comment']			 = $result->comment;
-      $data['image']			   = $result->image;
+
+      $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(config_item('channelAccessToken'));
+      $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => config_item('channelSecret')]);
+      $response = $bot->getMessageContent($result->image);
+      if ($response->isSucceeded()) {
+         $imgsrc = base64_encode($response->getRawBody());
+      } else {
+         $imgsrc = "";
+      }
+      $data['imagecontent']	  = $imgsrc;
     }
 
     $this->load->view('reports/v_report_detail', $data);
