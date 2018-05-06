@@ -18,7 +18,7 @@ class Volunteer extends CI_Controller{
     $data['instagram'] = $this->M_crud->get_find_query("count(id) as cnt from bot_reg where instagram <> ''")->cnt;
     $data['twitter'] = $this->M_crud->get_find_query("count(id) as cnt from bot_reg where twitter <> ''")->cnt;
     $data['telegram'] = 0;
-    $data['location'] = $this->M_crud->custom_query("SELECT domicile, count(*) AS cnt FROM bot_reg WHERE domicile <> '' GROUP BY domicile ORDER BY count(*) DESC LIMIT 5");
+    $data['location'] = $this->M_crud->custom_query("SELECT domicile, count(*) AS cnt, SUBSTR(latitude, 1, 2) AS lati, SUBSTR(longitude, 1, 3) AS longi FROM bot_reg WHERE domicile <> '' GROUP BY lati, longi ORDER BY count(*) DESC LIMIT 5");
 
     $data['lelaki1'] = $this->M_crud->get_find_query("count(id) as cnt FROM bot_reg WHERE (YEAR(CURDATE()) - YEAR(ttl)) > 17 AND (YEAR(CURDATE()) - YEAR(ttl)) < 25 AND gender = 'L'")->cnt;
     $data['lelaki2'] = $this->M_crud->get_find_query("count(id) as cnt FROM bot_reg WHERE (YEAR(CURDATE()) - YEAR(ttl)) > 24 AND (YEAR(CURDATE()) - YEAR(ttl)) < 35 AND gender = 'L'")->cnt;
@@ -40,7 +40,7 @@ class Volunteer extends CI_Controller{
   public function detail_volunteer($id)
   {
     $this->M_base->_make_sure_is_login();
-    
+
     $query = $this->M_crud->_get_data('*', 'bot_reg','user_id',$id);
 		foreach ($query as $result){
 			$data['name']			     = $result->name;

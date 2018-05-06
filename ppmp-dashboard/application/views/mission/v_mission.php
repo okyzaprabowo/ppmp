@@ -70,10 +70,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th style="text-align: center; width: 5%;">No.</th>
                           <th style="text-align: center;">Misi</th>
                           <th style="text-align: center;">Tanggal</th>
-                          <th style="text-align: center;">Status</th>
+                          <th style="text-align: center;">Wilayah</th>
                           <th style="text-align: center; width: 5%;">Detail</th>
                         </tr>
                       </thead>
+                      <tbody>
+                        <?php
+                        if($mission > 0){
+                          $no = 1;
+                          foreach($mission as $data){
+                        ?>
+                          <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $data->description ?></td>
+                            <td><?= date('d F Y',strtotime($data->created_at)) ?></td>
+                            <td><?= $data->domicile ?></td>
+                            <td><a class="btn btn-warning btn-xs" href="<?php echo site_url('Mission/detail_mission').'/'.$data->id;?>">
+                                 <i class="fa fa-binoculars" title="Detail"></i></a></td>
+                          </tr>
+                        <?php                        
+                          $no++;
+                          }
+                        }
+                        ?>
+                      </tbody>
                   </table>
                 </div
               </div>

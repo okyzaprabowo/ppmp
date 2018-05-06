@@ -1,0 +1,137 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <?php $this->load->view('templates/v_header'); ?>
+  </head>
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="javascript.void(0);" class="site_title"><span>Simpul Relawan</span></a>
+            </div>
+            <div class="clearfix"></div>
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="<?php echo base_url('assets/images/').$this->session->userdata['ppmp']['ap_image'];?>" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Welcome,</span>
+                <h2><?php echo $this->session->userdata['ppmp']['ap_name'];?></h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+            <br />
+            <!-- sidebar menu -->
+            <?php $this->load->view('templates/v_left_menu'); ?>
+            <!-- sidebar menu -->
+          </div>
+        </div>
+
+        <!-- top nav -->
+        <?php $this->load->view('templates/v_top_menu'); ?>
+        <!-- top nav -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3></h3>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Detail Mission</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Misi</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" disabled><?= $description; ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Tanggal</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $tgl; ?>" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Jumlah Relawan</label>
+                        <div class="col-md-4 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $volunteer; ?>" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Domisili</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <input type="text" class="form-control" value="<?= $domicile; ?>" disabled>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Pendidikan</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" disabled><?= $education; ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Kegiatan</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" disabled><?= $activities; ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Bidang Kegiatan</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" disabled><?= $field_activity; ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Kemampuan Khusus</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" disabled><?= $special_ability; ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Komunitas</label>
+                        <div class="col-md-6 col-sm-9 col-xs-12">
+                          <textarea class="form-control" rows="3" disabled><?= $community; ?></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-2">
+                          <a href="<?php echo base_url('Mission'); ?>" class="btn btn-success">Kembali</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- page content -->
+
+        <!-- footer content -->
+        <?php $this->load->view('templates/v_copyright'); ?>
+        <!-- footer content -->
+      </div>
+    <?php $this->load->view('templates/v_footer'); ?>
+  </body>
+</html>

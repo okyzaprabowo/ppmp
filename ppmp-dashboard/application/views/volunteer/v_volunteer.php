@@ -76,10 +76,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <?php
                     if(!empty($location)){
                       $loc = '';
-                      $cnt = 0;
+                      $loc_cnt = 0;
                       foreach($location as $data){
                         $string_array = explode(",",$data->domicile);
                         $loc = $string_array[3].', '.preg_replace('/\d+/u', '', $string_array[4]);
+                        $loc_cnt = $data->cnt;
                   ?>
                     <div class="widget_summary">
                       <div class="w_left" style="width: 50%;">
@@ -87,9 +88,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                       <div class="w_center" style="width: 50%;">
                         <div class="progress">
-                          <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $cnt ?>"
-                                      aria-valuemin="0" aria-valuemax="100" style="width: <?= $cnt ?>%;">
-                            <span class="sr-only"><?= $cnt ?>% Complete</span>
+                          <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $loc_cnt ?>"
+                                      aria-valuemin="0" aria-valuemax="100" style="width: <?= $loc_cnt ?>%;">
+                            <span class="sr-only"><?= $loc_cnt ?>% Complete</span>
                           </div>
                         </div>
                       </div>

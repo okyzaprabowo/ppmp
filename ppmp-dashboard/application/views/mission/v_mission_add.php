@@ -51,31 +51,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                  <div id="notifikasi"></div>
                   <br />
-                  <form class="form-horizontal form-label-left">
+                  <form class="form-horizontal form-label-left" action="#" id="frmAdd">
+                  <!-- <form class="form-horizontal form-label-left" action="</?php echo base_url('Mission/send_mission'); ?>" id="frmAdd" method="post"> -->
                     <div class="form-group">
-                      <label class="control-label col-md-2 col-sm-3 col-xs-12">Mission Detail</label>
+                      <label class="control-label col-md-2 col-sm-3 col-xs-12">Misi</label>
                       <div class="col-md-8 col-sm-9 col-xs-12">
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" id="mission_detail" name="mission_detail" required></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12">Domisili</label>
                       <div class="col-md-5 col-sm-9 col-xs-12">
-                        <select id="dates-field2" class="multiselect-ui form-control" multiple="multiple" id="selDomisili">
-                          <?php
-    												foreach($arr_domisili as $row)
-    												{
-    													echo '<option value="'.$row->domicile.'">'.$row->domicile.'</option>';
-    												}
-				            			?>
-                        </select>
+                        <input type="text" class="form-control" id="domicile" name="domicile">
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12">Pendidikan</label>
                       <div class="col-md-5 col-sm-9 col-xs-12">
-                         <select class="multiselect-ui form-control" multiple="multiple" id="selPendidikan">
+                         <select class="multiselect-ui form-control" multiple="multiple" id="selPendidikan" name="selPendidikan[]">
                            <option value="SD">SD</option>
                            <option value="SMP">SMP</option>
                            <option value="SMA">SMA</option>
@@ -89,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12">Kegiatan</label>
                       <div class="col-md-8 col-sm-9 col-xs-12">
-                        <select class="multiselect-ui form-control" multiple="multiple" id="selKegiatan">
+                        <select class="multiselect-ui form-control" multiple="multiple" id="selKegiatan" name="selKegiatan[]">
                           <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
                           <option value="Pegawai Negeri">Pegawai Negeri</option>
                           <option value="Pegawai Swasta">Pegawai Swasta</option>
@@ -106,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12">Bidang Kegiatan</label>
                       <div class="col-md-8 col-sm-9 col-xs-12">
-                        <select class="multiselect-ui form-control" multiple="multiple" id="selBidangKegiatan">
+                        <select class="multiselect-ui form-control" multiple="multiple" id="selBidangKegiatan" name="selBidangKegiatan[]">
                           <option value="Pendidikan">Pendidikan</option>
                           <option value="Pertanian dan Perkebunan">Pertanian dan Perkebunan</option>
                           <option value="Peternakan">Peternakan</option>
@@ -135,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12">Kemampuan Khusus</label>
                       <div class="col-md-8 col-sm-9 col-xs-12">
-                        <select class="multiselect-ui form-control" multiple="multiple" id="selKemampuan">
+                        <select class="multiselect-ui form-control" multiple="multiple" id="selKemampuan" name="selKemampuan[]">
                           <option value="Menulis">Menulis</option>
                           <option value="Programming">Programming</option>
                           <option value="Fotografi">Fotografi</option>
@@ -154,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="form-group">
                       <label class="control-label col-md-2 col-sm-3 col-xs-12">Komunitas</label>
                       <div class="col-md-8 col-sm-9 col-xs-12">
-                        <select class="multiselect-ui form-control" multiple="multiple" id="selKomunitas">
+                        <select class="multiselect-ui form-control" multiple="multiple" id="selKomunitas" name="selKomunitas[]">
                           <option value="Olahraga">Olahraga</option>
                           <option value="Kecantikan">Kecantikan</option>
                           <option value="Gaya Hidup">Gaya Hidup</option>
@@ -174,8 +169,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <div class="form-group">
                         <div class="col-md-8 col-sm-9 col-xs-12 col-md-offset-2">
-                          <button type="submit" class="btn btn-primary">Simpan</button>
-                          <a href="<?php echo base_url('Mission'); ?>" class="btn btn-success">Batal</a>
+                          <button type="button" class="btn btn-primary" id="btnSimpan" onclick="sendmission()">Kirim Misi</button>
+                          <!-- <button type="submit" class="btn btn-primary" id="btnSimpan">Kirim Misi</button> -->
+                          <a href="<?php echo base_url('Mission'); ?>" class="btn btn-success">Kembali</a>
+                          <a href="<?php echo base_url('Mission/add_mission'); ?>" class="btn btn-warning">Reset</a>
                         </div>
                       </div>
                   <form>
@@ -194,6 +191,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script>
         $(document).ready(function(){
+          $(document).ajaxStart(function () {
+            if (dontBlock){
+              $.blockUI();
+            }
+          }).ajaxStop($.unblockUI);
+
           $('.multiselect-ui').multiselect({
               includeSelectAllOption: true
           });
@@ -202,8 +205,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var id_paket = data.target.value;
             alert(id_paket);
           });
+
+          //$('#notifikasi').delay(10000).fadeOut("slow");
         });
 
+        function sendmission()
+        {
+          var mision = $('#mission_detail').val();
+
+          if(mision == ''){
+            alert('Silahkan isi dulu misi yang akan di kirim.');
+            e.preventDefault();
+          }else{
+            dontBlock = true;
+            $.ajax({
+              url : "<?php echo site_url('Mission/send_mission')?>",
+              type: "POST",
+              data:$('#frmAdd').serialize(),
+              dataType: "JSON",
+              success: function(data)
+              {
+                if(data.status){
+                  dontBlock = false;
+                  document.getElementById("notifikasi").innerHTML = data.pesan;
+                  $('#mission_detail').val('');
+                  $('#domicile').val('');
+                  $('#selPendidikan').val('');
+                  $('#selKegiatan').val('');
+                  $('#selBidangKegiatan').val('');
+                  $('#selKemampuan').val('');
+                  $('#selKomunitas').val('');
+                }else{
+                  dontBlock = false;
+                  document.getElementById("notifikasi").innerHTML = data.pesan;
+                }
+                $(window).scrollTop(0);
+              },
+              error: function (jqXHR, textStatus, errorThrown)
+              {
+              	alert('Kirim misi gagal !, silahkan coba lagi.');
+              }
+            });
+          }
+        }
     </script>
   </body>
 </html>

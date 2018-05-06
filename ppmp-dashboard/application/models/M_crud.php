@@ -8,9 +8,13 @@ class M_crud extends CI_Model {
 		return $this->db->insert($table, $data);
 	}
 
-	function _update($table, $id, $where, $data)
+	function _update($table, $id, $where, $data, $where1 = NULL, $param1 = NULL)
 	{
 		$this->db->where($where, $id);
+    if(!is_null($where1))
+    {
+      $this->db->where($where1, $param1);
+    }
 		$this->db->update($table, $data);
 	}
 
