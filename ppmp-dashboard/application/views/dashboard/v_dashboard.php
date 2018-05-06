@@ -54,28 +54,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                <div class="x_content">
                  <div class="row tile_count">
                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                     <span class="count_top"><i class="fa fa-user"></i> Unique Volunteers</span>
-                     <div class="count">235K</div>
+                     <span class="count_top"><i class="fa fa-user"></i> Total Volunteers</span>
+                     <div class="count"><?php echo $volunteer_total; ?></div>
                    </div>
                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                      <span class="count_top"><i class="fa fa-male"></i> New Volunteers</span>
-                     <div class="count">1500</div>
+                     <div class="count"><?php echo $volunteer_today; ?></div>
                    </div>
                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                     <span class="count_top"><i class="fa fa-newspaper-o"></i> Content Amount</span>
-                     <div class="count">1900</div>
+                     <span class="count_top"><i class="fa fa-newspaper-o"></i> Total Activity</span>
+                     <div class="count"><?php echo $activity; ?></div>
                    </div>
                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                     <span class="count_top"><i class="fa fa-flag-o"></i> Sessions</span>
-                     <div class="count">97.0K</div>
+                     <span class="count_top"><i class="fa fa-flag-o"></i> Content Requested</span>
+                     <div class="count">0</div>
                    </div>
                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                      <span class="count_top"><i class="fa fa-shield"></i> Finished Mission</span>
-                     <div class="count">2,500</div>
+                     <div class="count"><?php echo $volunteer_mission; ?></div>
                    </div>
                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                      <span class="count_top"><i class="fa fa-file-o"></i> Reports</span>
-                     <div class="count">4,000</div>
+                     <div class="count"><?php echo $volunteer_reports; ?></div>
                    </div>
                  </div>
                </div>
