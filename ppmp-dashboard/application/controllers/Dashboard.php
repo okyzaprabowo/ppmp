@@ -23,6 +23,24 @@ class Dashboard extends CI_Controller{
 		$config['zoom'] = 5;
     $config['map_height'] = "300px";
     $this->googlemaps->initialize($config);
+
+
+    $vs = $this->M_crud->_get_data('*','bot_reg');
+    foreach($vs as $v)
+    {
+      $marker = array();
+
+      //$msg = "<a href='".base_url()."index.php/Welcome/DetailAnswer/".$v->KoordinatorTelegram.">".ucfirst($v->KoordinatorName)."</a>";
+      //$msd = "<a href='index.php/Welcome/DetailAnswer/$id[telegram]'>".ucfirst($v->KoordinatorName)."</a>";
+      $latlong = $v->latitude.','.$v->longitude;
+      $marker['position'] = $latlong;
+      $marker['infowindow_content'] = $v->name;
+      $marker['icon'] = base_url()."assets/images/pin.png";
+      $this->googlemaps->add_marker($marker);
+    }
+
+
+
     $data['map'] = $this->googlemaps->create_map();
     $this->load->view('dashboard/v_dashboard', $data);
   }
