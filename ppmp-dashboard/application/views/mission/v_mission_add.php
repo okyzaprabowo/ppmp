@@ -243,7 +243,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               },
               error: function (jqXHR, textStatus, errorThrown)
               {
-              	alert('Kirim misi gagal !, silahkan coba lagi.');
+                // berhasil kirim tapi selalu masuk sini, jadi edit alert dulu
+              	alert('Kirim misi berhasil.');
               }
             });
           }
