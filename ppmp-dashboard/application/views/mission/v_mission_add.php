@@ -243,8 +243,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               },
               error: function (jqXHR, textStatus, errorThrown)
               {
-                // berhasil kirim tapi selalu masuk sini, jadi edit alert dulu
-              	alert('Kirim misi berhasil.');
+                dontBlock = false;
+                var msg = "<div class='alert alert-warning alert-dismissible fade in' role='alert'>"+
+                          "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>"+
+                          "<span aria-hidden='true'>×</span>"+
+                          "</button><strong>Kirim misi gagal !</strong>, silahkan coba lagi.</div>";
+                document.getElementById("notifikasi").innerHTML = msg;
               }
             });
           }

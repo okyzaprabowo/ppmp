@@ -102,9 +102,13 @@ class Mission extends CI_Controller{
       $var_community = rtrim($var_community,", ");
       $query = $query." community in(".$community.") and ";
     }
-
-    $query = rtrim($query," and ");
-    $query = 'select * from bot_reg where '.$query;
+    
+    if(!empty($query)){
+      $query = rtrim($query," and ");
+      $query = 'select * from bot_reg where '.$query;
+    }else{
+      $query = 'select * from bot_reg';
+    }
 
     $query = $this->M_crud->custom_query($query);
 
